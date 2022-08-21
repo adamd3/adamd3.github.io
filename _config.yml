@@ -8,7 +8,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 #
-# If you need help with YAML syntax, here are some quick references for you: 
+# If you need help with YAML syntax, here are some quick references for you:
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 #
@@ -21,7 +21,7 @@
 title: Adam Dinan
 email: ad866@cam.ac.uk
 description: >- # this means to ignore newlines until "baseurl:"
-  Postdoctoral researcher in bioinformatics and computational biology, University of Cambridge.
+  Postdoctoral researcher in bioinformatics and computational biology.
 baseurl: "" # the subpath of your site, e.g. /blog
 domain: adamd3.github.io
 url: https://adamd3.github.io
@@ -29,10 +29,37 @@ twitter_username: adamdinan1
 github_username:  adamd3
 
 # Build settings
-theme: jekyll-theme-midnight
+# theme: jekyll-theme-midnight
+# remote_theme: samarsault/plainwhite-jekyll
+theme: plainwhite
+
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
+
+plainwhite:
+  name: Adam Dinan
+  tagline: Postdoctoral researcher in bioinformatics and computational biology, University of Cambridge.
+  date_format: "%b %-d, %Y"
+  dark_mode: true
+  search: true
+  html_lang: "en"
+  sitemap: true
+  baseurl: "/news/2022/08/21/welcome-to-my-blog"
+
+  navigation:
+    - title: Research
+      url: "/research"
+    - title: Publications
+      url: "/publications"
+    - title: Curriculum Vitae
+      url: "/cv"
+
+  social_links:
+    twitter: adamdinan1
+    github: adamd3
+
+  portfolio_image:  "assets/AD_MicroSoc_bw.png"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
