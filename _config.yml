@@ -25,6 +25,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 domain: adamd3.github.io
 url: https://adamd3.github.io
+
 twitter_username: adamdinan1
 github_username:  adamd3
 
@@ -45,7 +46,6 @@ plainwhite:
   search: true
   html_lang: "en"
   sitemap: true
-  baseurl: "/news/2022/08/21/welcome-to-my-blog"
 
   navigation:
     - title: Research
