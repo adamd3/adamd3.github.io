@@ -31,8 +31,8 @@ github_username:  adamd3
 
 # Build settings
 # theme: jekyll-theme-midnight
-# remote_theme: samarsault/plainwhite-jekyll
-theme: plainwhite
+remote_theme: samarsault/plainwhite-jekyll
+# theme: plainwhite
 
 plugins:
   - jekyll-feed
