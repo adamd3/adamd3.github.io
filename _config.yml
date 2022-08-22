@@ -48,6 +48,8 @@ plainwhite:
   sitemap: true
 
   navigation:
+    - title: Blog posts
+      url: "/posts"
     - title: Research
       url: "/research"
     - title: Publications
