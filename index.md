@@ -1,9 +1,9 @@
 ---
 layout: home ## this refers to home.html in _layouts dir
 ---
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-# Welcome to my blog
+
+# Welcome to my personal blog
 
 I am a Postdoctoral Research Associate in the Department of Medicine at the University of Cambridge and in the Laboratory of Molecular Biology, Cambridge.
 My principal research interest is in the development and application of computational methods for functional genomic annotation using large scale data sets
