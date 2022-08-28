@@ -5,13 +5,12 @@ title: Curriculum vitae
 
 # Curriculum vitae
 
-## Education and Research Experience
+## Current role
 
-### Currently
+Postdoctoral Research Associate.
+[Department of Medicine, University of Cambridge](https://www.med.cam.ac.uk/) and [MRC Laboratory of Molecular Biology](https://www2.mrc-lmb.cam.ac.uk/).
 
-Postdoctoral Research Associate. [Department of Medicine, University of Cambridge](https://www.med.cam.ac.uk/) and [MRC Laboratory of Molecular Biology](https://www2.mrc-lmb.cam.ac.uk/).
-
-### Areas of expertise
+## Areas of expertise
 
 - Statistical analysis of genetic and genomic data
 - Machine learning: model choice, development, application
@@ -23,7 +22,7 @@ Postdoctoral Research Associate. [Department of Medicine, University of Cambridg
 - Version control and best practices
 - Working in high-performance computing (HPC) environment and on cloud-based platforms (AWS)
 
-### Research interests
+## Research interests
 
 Functional genomics, comparative genomics, population-level genotype-phenotype analyses.
 
