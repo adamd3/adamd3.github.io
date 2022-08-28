@@ -42,7 +42,7 @@ plainwhite:
   name: Adam Dinan
   tagline: Postdoctoral researcher in bioinformatics and computational biology, University of Cambridge.
   date_format: "%b %-d, %Y"
-  dark_mode: true
+  dark_mode: false
   search: true
   html_lang: "en"
   sitemap: true
