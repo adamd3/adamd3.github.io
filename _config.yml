@@ -45,6 +45,11 @@ plainwhite:
   html_lang: "en"
   sitemap: true
 
+  condensed_mobile:
+    - home
+    - post
+    - page
+
   navigation:
     - title: Blog posts
       url: "/posts"
@@ -57,6 +62,7 @@ plainwhite:
 
   social_links:
     github: adamd3
+    linkedIn: in/adam-dinan-33726a24a/
 
   portfolio_image:  "assets/AD_MicroSoc_bw.png"
 

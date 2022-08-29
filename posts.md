@@ -1,6 +1,5 @@
 ---
 layout: post ## this refers to home.html in _layouts dir
-title: Blog posts
 ---
 
 <!-- {% for post in site.posts %}
