@@ -1,0 +1,4 @@
+baseURL = "https://adamd3.github.io/"
+languageCode = "en-gb"
+title = "Adam Dinan"
+theme = "LoveIt"
