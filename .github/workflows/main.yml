@@ -1,0 +1,44 @@
+name: github pages
+
+on:
+  push:
+    branches:
+      - main  # Set a branch to deploy
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: fcos
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      # - name: Update theme
+      #   # (Optional)If you have the theme added as submodule, you can pull it and use the most updated version
+      #   run: git submodule update --init --recursive
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      - name: Build
+        # remove --minify tag if you do not need it
+        # docs: https://gohugo.io/hugo-pipes/minification/
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: master
+          # Note that the GITHUB_TOKEN is NOT a personal access token.
+          # A GitHub Actions runner automatically creates a GITHUB_TOKEN secret
+          # to authenticate in your workflow.
+          # personal_token: ${{ secrets.TOKEN }}
+          # external_repository: adamd3/adamd3.github.io
+          # user_name: adamd3
+          # user_email: adam1989ie@gmail.com
