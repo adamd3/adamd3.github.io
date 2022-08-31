@@ -34,7 +34,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          publish_branch: master
+          # publish_branch: master
           # Note that the GITHUB_TOKEN is NOT a personal access token.
           # A GitHub Actions runner automatically creates a GITHUB_TOKEN secret
           # to authenticate in your workflow.
