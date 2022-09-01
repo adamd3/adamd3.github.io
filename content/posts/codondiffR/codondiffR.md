@@ -2,9 +2,6 @@
 title: "Introducing codondiffR"
 date: 2022-09-01T14:15:45+01:00
 draft: false
-<!-- resources:
-- name: "codondiffR"
-  src: "/images/codondiffR.png" -->
 ---
 
 <img src="https://adamd3.github.io/images/codondiffR.png" alt="drawing" width="200" height="231"/>
