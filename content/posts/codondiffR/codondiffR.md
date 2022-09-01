@@ -19,34 +19,35 @@ Here, the functionality of codondiffR is explored with a walkthrough of the vari
 
 To install and load codondiffR, run the following commands in R:
 
-    ```r
-    # install.packages("devtools")
-    devtools::install_github("adamd3/codondiffR")
-    library(codondiffR)
-    ```
+```r
+# install.packages("devtools")
+devtools::install_github("adamd3/codondiffR")
+library(codondiffR)
+```
 
 # Reading in data
 
 To read in one or more sequences from a fasta-format file, we use the `readSeq()` function from the Biostrings package, as shown below. The `DNAStringSet` object can then be used to generate a codonFreq object:
 
+```r
+fastaFile <- system.file(
+    "extdata", "example_viruses.fna", package="codondiffR"
+)
+virusSet <- readSeq(file = fastaFile)
 
-    fastaFile <- system.file(
-        "extdata", "example_viruses.fna", package="codondiffR"
-    )
-    virusSet <- readSeq(file = fastaFile)
+class(virusSet)
+# [1] "DNAStringSet"
+# attr(,"package")
+# [1] "Biostrings"
 
-    class(virusSet)
-    # [1] "DNAStringSet"
-    # attr(,"package")
-    # [1] "Biostrings"
+# Create a codonFreq object from the DNAStringSet.
+virusCF <- codonFreq(virusSet)
 
-    # Create a codonFreq object from the DNAStringSet.
-    virusCF <- codonFreq(virusSet)
-
-    class(virusCF)
-    # [1] "codonFreq"
-    # attr(,"package")
-    # [1] "codondiffR"
+class(virusCF)
+# [1] "codonFreq"
+# attr(,"package")
+# [1] "codondiffR"
+```
 
 
 The relative codon frequencies, along with the names and lengths (in codons) of each sequence, are stored in the codonFreq object, which is the main container for all subsequent analytical procedures. We can access the identifiers, lengths of sequences, and codon frequencies as follows:
