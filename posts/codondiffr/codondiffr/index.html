@@ -31,174 +31,172 @@ Pre-defined codon usage statistics for reference taxa come from the RefSeq subse
 </span></span><span class=line><span class=cl><span class=c1># [1] &#34;codonFreq&#34;</span>
 </span></span><span class=line><span class=cl><span class=c1># attr(,&#34;package&#34;)</span>
 </span></span><span class=line><span class=cl><span class=c1># [1] &#34;codondiffR&#34;</span>
-</span></span></code></pre></div><p>The relative codon frequencies, along with the names and lengths (in codons) of each sequence, are stored in the codonFreq object, which is the main container for all subsequent analytical procedures. We can access the identifiers, lengths of sequences, and codon frequencies as follows:</p><pre><code>nseq(virusCF)
-# [1] 16
-
-head(seqID(virusCF))
-# [1] &quot;NC_002509.2_Turnip_mosaic_virus&quot;         
-# [2] &quot;NC_003628.1_Parsnip_yellow_fleck_virus&quot;  
-# [3] &quot;NC_004830.2_Deformed_wing_virus&quot;         
-# [4] &quot;NC_003924.1_Cricket_paralysis_virus&quot;     
-# [5] &quot;NC_001545.2_Rubella_virus&quot;               
-# [6] &quot;NC_004102.1_Hepatitis_C_virus_genotype_1&quot;
-
-head(seqlen(virusCF))
-# [1] 3165 3028 2894 2668 3181 3012
-
-head(getFreqs(virusCF)[,1:6])
-#              AAA         AAC        AAG         AAT         ACA         ACC
-# [1,] 0.030963665 0.031279621 0.04107425 0.016745656 0.024644550 0.011690363
-# [2,] 0.029392338 0.015521797 0.03236460 0.022126816 0.018163804 0.018824306
-# [3,] 0.028913963 0.005641749 0.02715092 0.040197461 0.014456982 0.007052186
-# [4,] 0.045352324 0.018365817 0.02061469 0.027361319 0.031109445 0.013118441
-# [5,] 0.004086765 0.011631562 0.01005973 0.005658598 0.003458032 0.037409620
-# [6,] 0.009960159 0.020252324 0.02091633 0.008300133 0.010956175 0.029548473
-</code></pre><h1 id=subset-a-codonfreq-object>Subset a codonFreq object</h1><p>Subsetting functionality for a codonFreq object essentially works the same as <code>Base::Extract</code> - you pass the numeric indices of the subset in the format: <code>x[i, j]</code>; where <code>x</code> is the codonFreq object, <code>i</code> are the indices of rows (sequences) in the object to be included in the subset, and <code>j</code> are the columns (codons) to be included.</p><pre><code># Subset to the first 10 sequences, including all 64 codons:
-virusCF_sub_1 &lt;- virusCF[1:10,1:64]
-
-nseq(virusCF_sub_1)
-
-# [1] 10
-
-# Subset to specific codons and the first 10 sequences:
-codIdx &lt;- which(colnames(getFreqs(virusCF)) %in% c(&quot;ATC&quot;, &quot;AAT&quot;, &quot;GCC&quot;))
-virusCF_sub_2 &lt;- virusCF[1:10,codIdx]
-</code></pre><h1 id=visualise-codon-frequency-and-gc3-content>Visualise codon frequency and GC3 content</h1><p>To plot the relative codon frequencies, call the codonPlot() function on the codonFreq object as shown below. Various attributes of the output figure can be specified using the parameters <code>height</code>, <code>width</code>, <code>dpi</code>, and <code>fname</code>. See the function’s help page for more information. If a groups vector is supplied, then codon frequencies will be plotted by group. Note that all plotting functions in the package will return a ggplot object, which can be used to modify or combine figures.</p><pre><code>codonPlot(virusCF)
-# Using Taxon as id variables
-</code></pre><p><img class=lazyload src=/svg/loading.min.svg data-src=/images/codondiffR-chunk-5-1.png data-srcset="/images/codondiffR-chunk-5-1.png, /images/codondiffR-chunk-5-1.png 1.5x, /images/codondiffR-chunk-5-1.png 2x" data-sizes=auto alt=/images/codondiffR-chunk-5-1.png title=/images/codondiffR-chunk-5-1.png></p><p>For these and all other plots, it is possible to save the plot to file when calling the function, by setting <code>save = TRUE</code> when calling <code>codonPlot</code> (or any other plot-producing function), and the height, width, file name and dpi of the saved figure can be specified. See the help pages for each function.</p><p>It is also possible to make grouped codon plots as follows:</p><pre><code>groups &lt;- c(
-    rep(&quot;Non-mammalian virus&quot;, 4),
-    rep(&quot;Mammalian virus&quot;, 10), rep(&quot;Non-mammalian virus&quot;, 2)
-)
-
-codonPlot(virusCF, groups = groups, width = 40, height = 7)
-# Using Taxon, groups as id variables
-</code></pre><p><img class=lazyload src=/svg/loading.min.svg data-src=/images/codondiffR-chunk-6-1.png data-srcset="/images/codondiffR-chunk-6-1.png, /images/codondiffR-chunk-6-1.png 1.5x, /images/codondiffR-chunk-6-1.png 2x" data-sizes=auto alt=/images/codondiffR-chunk-6-1.png title=/images/codondiffR-chunk-6-1.png></p><p>It is also possible to plot the GC3 content (i.e. proportion of codons with a G or a C residue at the third position) across the sequences. A groups vector is required here; and it must be the same length as the number of sequences in the codonFreq object.</p><pre><code>groups &lt;- c(
-    rep(&quot;Plant virus&quot;, 2), rep(&quot;Insect virus&quot;, 2),
-    rep(&quot;Mammal-specific virus&quot;, 6), rep(&quot;Mammalian and Insect virus&quot;, 4), rep(&quot;Insect-specific virus&quot;, 2)
-)
-
-gcPlot(virusCF, groups = groups, width = 40, height = 7)
-# Using Taxon, groups as id variables
-</code></pre><p><img class=lazyload src=/svg/loading.min.svg data-src=/images/codondiffR-chunk-7-1.png data-srcset="/images/codondiffR-chunk-7-1.png, /images/codondiffR-chunk-7-1.png 1.5x, /images/codondiffR-chunk-7-1.png 2x" data-sizes=auto alt=/images/codondiffR-chunk-7-1.png title=/images/codondiffR-chunk-7-1.png></p><h1 id=normalisation-and-codon-bias-calculation>Normalisation and codon bias calculation</h1><p>Normalisation of codon frequencies transforms the raw frequencies of individual codons into the relative proportions for each amino acid. For example, if half of all alanine-encoding codons are GCC and the other half are GCG, then the normalised abundances of these two codons will both be 0.5, and the abundances of the other two alanine-encoding codons (GCT and GCA) will be 0. When an amino acid is not found in a given sequence, then the proportions of each of the corresponding codons will be NA.</p><pre><code>virusCF_norm &lt;- normalise(virusCF)
-
-head(getFreqs(virusCF_norm)[,1:6])
-#          AAA       AAC       AAG       AAT        ACA       ACC
-# X1 0.4298246 0.6513158 0.5701754 0.3486842 0.40414508 0.1917098
-# X2 0.4759358 0.4122807 0.5240642 0.5877193 0.29411765 0.3048128
-# X3 0.5157233 0.1230769 0.4842767 0.8769231 0.25625000 0.1250000
-# X4 0.6875000 0.4016393 0.3125000 0.5983607 0.41919192 0.1767677
-# X5 0.2888889 0.6727273 0.7111111 0.3272727 0.05699482 0.6165803
-# X6 0.3225806 0.7093023 0.6774194 0.2906977 0.15277778 0.4120370
-</code></pre><h1 id=codon-bias-plots>Codon bias plots</h1><p>Codon bias can be plotted using normalised frequencies per amino acid:</p><pre><code>groups &lt;- c(
-    rep(&quot;Non-mammalian virus&quot;, 4),
-    rep(&quot;Mammalian virus&quot;, 10), rep(&quot;Non-mammalian virus&quot;, 2)
-)
-
-biasPlot(
-    virusCF_norm, groups = groups, aa = &quot;L&quot;,
-    label = &quot;Leucine&quot;, colours = c(1,2), ylim = c(0,0.5), width = 40, height = 7
-)
-# Using Taxon, groups as id variables
-</code></pre><p><img class=lazyload src=/svg/loading.min.svg data-src=/images/codondiffR-chunk-9-1.png data-srcset="/images/codondiffR-chunk-9-1.png, /images/codondiffR-chunk-9-1.png 1.5x, /images/codondiffR-chunk-9-1.png 2x" data-sizes=auto alt=/images/codondiffR-chunk-9-1.png title=/images/codondiffR-chunk-9-1.png></p><h1 id=comparison-with-codon-usage-in-other-taxa>Comparison with codon usage in other taxa</h1><p>Mean codon usage frequency divergence (MCUFD) between the sequences in the codonFreq object and those in the Codon Usage Table Database (CUTD) (PMID: 23308027) can be calculated using the <code>MCUFD</code> function. Specific codons can be excluded from the comparison by passing a vector to exclude, and a minimum number of codons required in both the codonFreq sequences and the CUTD database entries (using the minlen parameter; default = 600 codons).</p><p>The results can then be plotted using the <code>MCUFD_plot</code> function, and the type argument accepts either bar (bar plots) or line (line plots). Moreover, the phylogenetic rank of interest can be specified using the rank parameter, which accepts <code>Phylum</code> (default), <code>Domain</code>, or <code>Kingdom</code>. The five most common overall levels of this rank will be plotted per sequence.</p><p>Enrichment testing allows an assessment of the relative over- or under-representation of specific taxonomic ranks in the top n hits. Enrichment plot type is determined by the ptype parameter, which accepts either <code>heatmap</code> (default) or <code>dotplot</code>. An optional p-value threshold, based on the results of Fisher’s exact test, can also be applied using pthresh. The results of the enrichment testing can also be saved in tab-delimited format to a file, via <code>outtab</code>.</p><pre><code>exclCod &lt;- c(&quot;TAA&quot;, &quot;TAG&quot;, &quot;TGA&quot;)
-MCUFD_virus &lt;- MCUFD(virusCF_norm, exclude = exclCod, minlen = 600)
-
-class(MCUFD_virus)
-# [1] &quot;list&quot;
-
-# Range of MCUFD values for the first sequence in the `codonFreq` object:
-range(MCUFD_virus[[1]]$MCUFD)
-# [1] 0.05668745 0.31468838
-
-# Taxonomic ranks of the 100 most similar database entries:
-table(MCUFD_virus[[1]]$Kingdom[1:100], useNA = &quot;always&quot;)
-#         Fungi       Metazoa Viridiplantae          &lt;NA&gt;
-#            20            45             7            28
-
-MCUFD_enrich(
-    MCUFD_virus, n = 100, rank = &quot;Phylum&quot;, ptype = &quot;heatmap&quot;,
-    pthresh = 0.05,
-    dpi = 200, width = 40, height = 7
-)
-</code></pre><p><img class=lazyload src=/svg/loading.min.svg data-src=/images/codondiffR-chunk-10-1.png data-srcset="/images/codondiffR-chunk-10-1.png, /images/codondiffR-chunk-10-1.png 1.5x, /images/codondiffR-chunk-10-1.png 2x" data-sizes=auto alt=/images/codondiffR-chunk-10-1.png title=/images/codondiffR-chunk-10-1.png></p><p>Note that the MCUFD enrichment values can be saved to file by using the <code>outtab</code> parameter - see the help page for the <code>MCUFD_enrich</code> function.</p><h1 id=principal-component-analysis-pca>Principal component analysis (PCA)</h1><p>PCA of entries in the Codon Usage Table Database (CUTD) (PMID: 23308027) can be calculated using the <code>PCA()</code> function. A subset of specific taxonomic groups can be included using includeTax. The <code>predict_PCA()</code> function will apply the principal components defined with <code>PCA()</code> to the sequences in the codonFreq object, and produce a plot of the first two components (PC1 and PC2).</p><pre><code>includeTax &lt;- c(
-    &quot;Arthropoda&quot;, &quot;Streptophyta&quot;,  &quot;Chordata&quot;
-)
-exclCod &lt;- c(&quot;TAA&quot;, &quot;TAG&quot;, &quot;TGA&quot;)
-
-PCA_dat &lt;- PCA(
-    exclude = exclCod, rank = &quot;Phylum&quot;,
-    corCut = 1, minlen = 600, includeTax = includeTax
-)
-
-class(PCA_dat)
-# [1] &quot;prcomp&quot;
-
-identifiers &lt;- c(
-    rep(&quot;Non-mammalian virus&quot;, 4),
-    rep(&quot;Mammalian virus&quot;, 10), rep(&quot;Non-mammalian virus&quot;, 2)
-)
-predict_PCA(
-    virusCF_norm, PCA_dat, rank = &quot;Phylum&quot;,
-    minlen = 600, identifier = identifiers, includeTax = includeTax,
-    dpi = 200, width = 40, height = 7
-)
-</code></pre><p><img class=lazyload src=/svg/loading.min.svg data-src=/images/codondiffR-chunk-11-1.png data-srcset="/images/codondiffR-chunk-11-1.png, /images/codondiffR-chunk-11-1.png 1.5x, /images/codondiffR-chunk-11-1.png 2x" data-sizes=auto alt=/images/codondiffR-chunk-11-1.png title=/images/codondiffR-chunk-11-1.png></p><h1 id=session-info>Session info</h1><pre><code>sessionInfo()
-
-# R version 4.1.3 (2022-03-10)
-# Platform: x86_64-redhat-linux-gnu (64-bit)
-# Running under: Fedora Linux 35 (Workstation Edition)
-##
-# Matrix products: default
-# BLAS/LAPACK: /usr/lib64/libflexiblas.so.3.2
-##
-# locale:
-#  [1] LC_CTYPE=en_GB.UTF-8       LC_NUMERIC=C              
-#  [3] LC_TIME=en_GB.UTF-8        LC_COLLATE=en_GB.UTF-8    
-#  [5] LC_MONETARY=en_GB.UTF-8    LC_MESSAGES=en_GB.UTF-8   
-#  [7] LC_PAPER=en_GB.UTF-8       LC_NAME=C                 
-#  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-# [11] LC_MEASUREMENT=en_GB.UTF-8 LC_IDENTIFICATION=C       
-##
-# attached base packages:
-# [1] grid      stats     graphics  grDevices utils     datasets  methods  
-# [8] base     
-##
-# other attached packages:
-# [1] scales_1.2.1     plyr_1.8.7       ggplot2_3.3.6    codondiffR_0.1.0
-##
-# loaded via a namespace (and not attached):
-#   [1] nlme_3.1-155           bitops_1.0-7           fs_1.5.2              
-#   [4] usethis_2.1.5          lubridate_1.8.0        devtools_2.4.3        
-#   [7] RColorBrewer_1.1-3     GenomeInfoDb_1.30.1    ggbiplot_0.55         
-#  [10] tools_4.1.3            utf8_1.2.2             R6_2.5.1              
-#  [13] rpart_4.1.16           BiocGenerics_0.40.0    colorspace_2.0-3      
-#  [16] nnet_7.3-17            withr_2.5.0            tidyselect_1.1.2      
-#  [19] prettyunits_1.1.1      processx_3.7.0         curl_4.3.2            
-#  [22] compiler_4.1.3         factoextra_1.0.7       cli_3.3.0             
-#  [25] labeling_0.4.2         callr_3.7.2            proxy_0.4-27          
-#  [28] stringr_1.4.1          digest_0.6.29          rmarkdown_2.16        
-#  [31] XVector_0.34.0         pkgconfig_2.0.3        htmltools_0.5.3       
-#  [34] parallelly_1.32.1      sessioninfo_1.2.2      highr_0.9             
-#  [37] fastmap_1.1.0          rlang_1.0.5            farver_2.1.1          
-#  [40] generics_0.1.3         dplyr_1.0.10           ModelMetrics_1.2.2.2  
-#  [43] RCurl_1.98-1.6         magrittr_2.0.3         GenomeInfoDbData_1.2.7
-#  [46] Matrix_1.4-0           S4Vectors_0.32.3       Rcpp_1.0.9            
-#  [49] munsell_0.5.0          fansi_1.0.3            lifecycle_1.0.1       
-#  [52] stringi_1.7.8          pROC_1.18.0            yaml_2.3.5            
-#  [55] zlibbioc_1.40.0        MASS_7.3-55            pkgbuild_1.3.1        
-#  [58] recipes_1.0.1          ggrepel_0.9.1          parallel_4.1.3        
-#  [61] listenv_0.8.0          crayon_1.5.1           lattice_0.20-45       
-#  [64] Biostrings_2.62.0      splines_4.1.3          knitr_1.40            
-#  [67] ps_1.7.1               pillar_1.8.1           future.apply_1.9.0    
-#  [70] reshape2_1.4.4         codetools_0.2-18       stats4_4.1.3          
-#  [73] pkgload_1.3.0          glue_1.6.2             evaluate_0.16         
-#  [76] data.table_1.14.2      remotes_2.4.2          vctrs_0.4.1           
-#  [79] foreach_1.5.2          gtable_0.3.1           purrr_0.3.4           
-#  [82] future_1.27.0          cachem_1.0.6           xfun_0.32             
-#  [85] gower_1.0.0            prodlim_2019.11.13     e1071_1.7-11          
-#  [88] class_7.3-20           survival_3.2-13        timeDate_4021.104     
-#  [91] tibble_3.1.8           iterators_1.0.14       IRanges_2.28.0        
-#  [94] memoise_2.0.1          hardhat_1.2.0          lava_1.6.10           
-#  [97] globals_0.16.1         ellipsis_0.3.2         caret_6.0-93          
-# [100] ipred_0.9-13
-</code></pre></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 2022-09-01</span></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://adamd3.github.io/posts/codondiffr/codondiffr/ data-title="Introducing codondiffR"><i class="fab fa-twitter fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://adamd3.github.io/posts/codondiffr/codondiffr/><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Linkedin" data-sharer=linkedin data-url=https://adamd3.github.io/posts/codondiffr/codondiffr/><i class="fab fa-linkedin fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Hacker News" data-sharer=hackernews data-url=https://adamd3.github.io/posts/codondiffr/codondiffr/ data-title="Introducing codondiffR"><i class="fab fa-hacker-news fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Line" data-sharer=line data-url=https://adamd3.github.io/posts/codondiffr/codondiffr/ data-title="Introducing codondiffR"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg aria-hidden=true></i></a><a href=javascript:void(0); title="Share on 微博" data-sharer=weibo data-url=https://adamd3.github.io/posts/codondiffr/codondiffr/ data-title="Introducing codondiffR"><i class="fab fa-weibo fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/posts/welcome/ class=prev rel=prev title="Welcome to my personal blog"><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>Welcome to my personal blog</a></div></div></article></div></main></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
+</span></span></code></pre></div><p>The relative codon frequencies, along with the names and lengths (in codons) of each sequence, are stored in the codonFreq object, which is the main container for all subsequent analytical procedures. We can access the identifiers, lengths of sequences, and codon frequencies as follows:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=nf>nseq</span><span class=p>(</span><span class=n>virusCF</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># [1] 16</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>head</span><span class=p>(</span><span class=nf>seqID</span><span class=p>(</span><span class=n>virusCF</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1># [1] &#34;NC_002509.2_Turnip_mosaic_virus&#34;         </span>
+</span></span><span class=line><span class=cl><span class=c1># [2] &#34;NC_003628.1_Parsnip_yellow_fleck_virus&#34;  </span>
+</span></span><span class=line><span class=cl><span class=c1># [3] &#34;NC_004830.2_Deformed_wing_virus&#34;         </span>
+</span></span><span class=line><span class=cl><span class=c1># [4] &#34;NC_003924.1_Cricket_paralysis_virus&#34;     </span>
+</span></span><span class=line><span class=cl><span class=c1># [5] &#34;NC_001545.2_Rubella_virus&#34;               </span>
+</span></span><span class=line><span class=cl><span class=c1># [6] &#34;NC_004102.1_Hepatitis_C_virus_genotype_1&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>head</span><span class=p>(</span><span class=nf>seqlen</span><span class=p>(</span><span class=n>virusCF</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1># [1] 3165 3028 2894 2668 3181 3012</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>head</span><span class=p>(</span><span class=nf>getFreqs</span><span class=p>(</span><span class=n>virusCF</span><span class=p>)</span><span class=n>[</span><span class=p>,</span><span class=m>1</span><span class=o>:</span><span class=m>6</span><span class=n>]</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1>#              AAA         AAC        AAG         AAT         ACA         ACC</span>
+</span></span><span class=line><span class=cl><span class=c1># [1,] 0.030963665 0.031279621 0.04107425 0.016745656 0.024644550 0.011690363</span>
+</span></span><span class=line><span class=cl><span class=c1># [2,] 0.029392338 0.015521797 0.03236460 0.022126816 0.018163804 0.018824306</span>
+</span></span><span class=line><span class=cl><span class=c1># [3,] 0.028913963 0.005641749 0.02715092 0.040197461 0.014456982 0.007052186</span>
+</span></span><span class=line><span class=cl><span class=c1># [4,] 0.045352324 0.018365817 0.02061469 0.027361319 0.031109445 0.013118441</span>
+</span></span><span class=line><span class=cl><span class=c1># [5,] 0.004086765 0.011631562 0.01005973 0.005658598 0.003458032 0.037409620</span>
+</span></span><span class=line><span class=cl><span class=c1># [6,] 0.009960159 0.020252324 0.02091633 0.008300133 0.010956175 0.029548473</span>
+</span></span></code></pre></div><h1 id=subset-a-codonfreq-object>Subset a codonFreq object</h1><p>Subsetting functionality for a codonFreq object essentially works the same as <code>Base::Extract</code> - you pass the numeric indices of the subset in the format: <code>x[i, j]</code>; where <code>x</code> is the codonFreq object, <code>i</code> are the indices of rows (sequences) in the object to be included in the subset, and <code>j</code> are the columns (codons) to be included.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=c1># Subset to the first 10 sequences, including all 64 codons:</span>
+</span></span><span class=line><span class=cl><span class=n>virusCF_sub_1</span> <span class=o>&lt;-</span> <span class=n>virusCF[1</span><span class=o>:</span><span class=m>10</span><span class=p>,</span><span class=m>1</span><span class=o>:</span><span class=m>64</span><span class=n>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>nseq</span><span class=p>(</span><span class=n>virusCF_sub_1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># [1] 10</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Subset to specific codons and the first 10 sequences:</span>
+</span></span><span class=line><span class=cl><span class=n>codIdx</span> <span class=o>&lt;-</span> <span class=nf>which</span><span class=p>(</span><span class=nf>colnames</span><span class=p>(</span><span class=nf>getFreqs</span><span class=p>(</span><span class=n>virusCF</span><span class=p>))</span> <span class=o>%in%</span> <span class=nf>c</span><span class=p>(</span><span class=s>&#34;ATC&#34;</span><span class=p>,</span> <span class=s>&#34;AAT&#34;</span><span class=p>,</span> <span class=s>&#34;GCC&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>virusCF_sub_2</span> <span class=o>&lt;-</span> <span class=n>virusCF[1</span><span class=o>:</span><span class=m>10</span><span class=p>,</span><span class=n>codIdx]</span>
+</span></span></code></pre></div><h1 id=visualise-codon-frequency-and-gc3-content>Visualise codon frequency and GC3 content</h1><p>To plot the relative codon frequencies, call the codonPlot() function on the codonFreq object as shown below. Various attributes of the output figure can be specified using the parameters <code>height</code>, <code>width</code>, <code>dpi</code>, and <code>fname</code>. See the function’s help page for more information. If a groups vector is supplied, then codon frequencies will be plotted by group. Note that all plotting functions in the package will return a ggplot object, which can be used to modify or combine figures.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=nf>codonPlot</span><span class=p>(</span><span class=n>virusCF</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># Using Taxon as id variables</span>
+</span></span></code></pre></div><p><img class=lazyload src=/svg/loading.min.svg data-src=/images/codondiffR-chunk-5-1.png data-srcset="/images/codondiffR-chunk-5-1.png, /images/codondiffR-chunk-5-1.png 1.5x, /images/codondiffR-chunk-5-1.png 2x" data-sizes=auto alt=/images/codondiffR-chunk-5-1.png title=/images/codondiffR-chunk-5-1.png></p><p>For these and all other plots, it is possible to save the plot to file when calling the function, by setting <code>save = TRUE</code> when calling <code>codonPlot</code> (or any other plot-producing function), and the height, width, file name and dpi of the saved figure can be specified. See the help pages for each function.</p><p>It is also possible to make grouped codon plots as follows:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>groups</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=nf>rep</span><span class=p>(</span><span class=s>&#34;Non-mammalian virus&#34;</span><span class=p>,</span> <span class=m>4</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=nf>rep</span><span class=p>(</span><span class=s>&#34;Mammalian virus&#34;</span><span class=p>,</span> <span class=m>10</span><span class=p>),</span> <span class=nf>rep</span><span class=p>(</span><span class=s>&#34;Non-mammalian virus&#34;</span><span class=p>,</span> <span class=m>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>codonPlot</span><span class=p>(</span><span class=n>virusCF</span><span class=p>,</span> <span class=n>groups</span> <span class=o>=</span> <span class=n>groups</span><span class=p>,</span> <span class=n>width</span> <span class=o>=</span> <span class=m>40</span><span class=p>,</span> <span class=n>height</span> <span class=o>=</span> <span class=m>7</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># Using Taxon, groups as id variables</span>
+</span></span></code></pre></div><p><img class=lazyload src=/svg/loading.min.svg data-src=/images/codondiffR-chunk-6-1.png data-srcset="/images/codondiffR-chunk-6-1.png, /images/codondiffR-chunk-6-1.png 1.5x, /images/codondiffR-chunk-6-1.png 2x" data-sizes=auto alt=/images/codondiffR-chunk-6-1.png title=/images/codondiffR-chunk-6-1.png></p><p>It is also possible to plot the GC3 content (i.e. proportion of codons with a G or a C residue at the third position) across the sequences. A groups vector is required here; and it must be the same length as the number of sequences in the codonFreq object.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>groups</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=nf>rep</span><span class=p>(</span><span class=s>&#34;Plant virus&#34;</span><span class=p>,</span> <span class=m>2</span><span class=p>),</span> <span class=nf>rep</span><span class=p>(</span><span class=s>&#34;Insect virus&#34;</span><span class=p>,</span> <span class=m>2</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=nf>rep</span><span class=p>(</span><span class=s>&#34;Mammal-specific virus&#34;</span><span class=p>,</span> <span class=m>6</span><span class=p>),</span> <span class=nf>rep</span><span class=p>(</span><span class=s>&#34;Mammalian and Insect virus&#34;</span><span class=p>,</span> <span class=m>4</span><span class=p>),</span> <span class=nf>rep</span><span class=p>(</span><span class=s>&#34;Insect-specific virus&#34;</span><span class=p>,</span> <span class=m>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>gcPlot</span><span class=p>(</span><span class=n>virusCF</span><span class=p>,</span> <span class=n>groups</span> <span class=o>=</span> <span class=n>groups</span><span class=p>,</span> <span class=n>width</span> <span class=o>=</span> <span class=m>40</span><span class=p>,</span> <span class=n>height</span> <span class=o>=</span> <span class=m>7</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># Using Taxon, groups as id variables</span>
+</span></span></code></pre></div><p><img class=lazyload src=/svg/loading.min.svg data-src=/images/codondiffR-chunk-7-1.png data-srcset="/images/codondiffR-chunk-7-1.png, /images/codondiffR-chunk-7-1.png 1.5x, /images/codondiffR-chunk-7-1.png 2x" data-sizes=auto alt=/images/codondiffR-chunk-7-1.png title=/images/codondiffR-chunk-7-1.png></p><h1 id=normalisation-and-codon-bias-calculation>Normalisation and codon bias calculation</h1><p>Normalisation of codon frequencies transforms the raw frequencies of individual codons into the relative proportions for each amino acid. For example, if half of all alanine-encoding codons are GCC and the other half are GCG, then the normalised abundances of these two codons will both be 0.5, and the abundances of the other two alanine-encoding codons (GCT and GCA) will be 0. When an amino acid is not found in a given sequence, then the proportions of each of the corresponding codons will be NA.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>virusCF_norm</span> <span class=o>&lt;-</span> <span class=nf>normalise</span><span class=p>(</span><span class=n>virusCF</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>head</span><span class=p>(</span><span class=nf>getFreqs</span><span class=p>(</span><span class=n>virusCF_norm</span><span class=p>)</span><span class=n>[</span><span class=p>,</span><span class=m>1</span><span class=o>:</span><span class=m>6</span><span class=n>]</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1>#          AAA       AAC       AAG       AAT        ACA       ACC</span>
+</span></span><span class=line><span class=cl><span class=c1># X1 0.4298246 0.6513158 0.5701754 0.3486842 0.40414508 0.1917098</span>
+</span></span><span class=line><span class=cl><span class=c1># X2 0.4759358 0.4122807 0.5240642 0.5877193 0.29411765 0.3048128</span>
+</span></span><span class=line><span class=cl><span class=c1># X3 0.5157233 0.1230769 0.4842767 0.8769231 0.25625000 0.1250000</span>
+</span></span><span class=line><span class=cl><span class=c1># X4 0.6875000 0.4016393 0.3125000 0.5983607 0.41919192 0.1767677</span>
+</span></span><span class=line><span class=cl><span class=c1># X5 0.2888889 0.6727273 0.7111111 0.3272727 0.05699482 0.6165803</span>
+</span></span><span class=line><span class=cl><span class=c1># X6 0.3225806 0.7093023 0.6774194 0.2906977 0.15277778 0.4120370</span>
+</span></span></code></pre></div><h1 id=codon-bias-plots>Codon bias plots</h1><p>Codon bias can be plotted using normalised frequencies per amino acid:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>groups</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=nf>rep</span><span class=p>(</span><span class=s>&#34;Non-mammalian virus&#34;</span><span class=p>,</span> <span class=m>4</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=nf>rep</span><span class=p>(</span><span class=s>&#34;Mammalian virus&#34;</span><span class=p>,</span> <span class=m>10</span><span class=p>),</span> <span class=nf>rep</span><span class=p>(</span><span class=s>&#34;Non-mammalian virus&#34;</span><span class=p>,</span> <span class=m>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>biasPlot</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=n>virusCF_norm</span><span class=p>,</span> <span class=n>groups</span> <span class=o>=</span> <span class=n>groups</span><span class=p>,</span> <span class=n>aa</span> <span class=o>=</span> <span class=s>&#34;L&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>label</span> <span class=o>=</span> <span class=s>&#34;Leucine&#34;</span><span class=p>,</span> <span class=n>colours</span> <span class=o>=</span> <span class=nf>c</span><span class=p>(</span><span class=m>1</span><span class=p>,</span><span class=m>2</span><span class=p>),</span> <span class=n>ylim</span> <span class=o>=</span> <span class=nf>c</span><span class=p>(</span><span class=m>0</span><span class=p>,</span><span class=m>0.5</span><span class=p>),</span> <span class=n>width</span> <span class=o>=</span> <span class=m>40</span><span class=p>,</span> <span class=n>height</span> <span class=o>=</span> <span class=m>7</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># Using Taxon, groups as id variables</span>
+</span></span></code></pre></div><p><img class=lazyload src=/svg/loading.min.svg data-src=/images/codondiffR-chunk-9-1.png data-srcset="/images/codondiffR-chunk-9-1.png, /images/codondiffR-chunk-9-1.png 1.5x, /images/codondiffR-chunk-9-1.png 2x" data-sizes=auto alt=/images/codondiffR-chunk-9-1.png title=/images/codondiffR-chunk-9-1.png></p><h1 id=comparison-with-codon-usage-in-other-taxa>Comparison with codon usage in other taxa</h1><p>Mean codon usage frequency divergence (MCUFD) between the sequences in the codonFreq object and those in the Codon Usage Table Database (CUTD) (PMID: 23308027) can be calculated using the <code>MCUFD</code> function. Specific codons can be excluded from the comparison by passing a vector to exclude, and a minimum number of codons required in both the codonFreq sequences and the CUTD database entries (using the minlen parameter; default = 600 codons).</p><p>The results can then be plotted using the <code>MCUFD_plot</code> function, and the type argument accepts either bar (bar plots) or line (line plots). Moreover, the phylogenetic rank of interest can be specified using the rank parameter, which accepts <code>Phylum</code> (default), <code>Domain</code>, or <code>Kingdom</code>. The five most common overall levels of this rank will be plotted per sequence.</p><p>Enrichment testing allows an assessment of the relative over- or under-representation of specific taxonomic ranks in the top n hits. Enrichment plot type is determined by the ptype parameter, which accepts either <code>heatmap</code> (default) or <code>dotplot</code>. An optional p-value threshold, based on the results of Fisher’s exact test, can also be applied using pthresh. The results of the enrichment testing can also be saved in tab-delimited format to a file, via <code>outtab</code>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>exclCod</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=s>&#34;TAA&#34;</span><span class=p>,</span> <span class=s>&#34;TAG&#34;</span><span class=p>,</span> <span class=s>&#34;TGA&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>MCUFD_virus</span> <span class=o>&lt;-</span> <span class=nf>MCUFD</span><span class=p>(</span><span class=n>virusCF_norm</span><span class=p>,</span> <span class=n>exclude</span> <span class=o>=</span> <span class=n>exclCod</span><span class=p>,</span> <span class=n>minlen</span> <span class=o>=</span> <span class=m>600</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>class</span><span class=p>(</span><span class=n>MCUFD_virus</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># [1] &#34;list&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Range of MCUFD values for the first sequence in the `codonFreq` object:</span>
+</span></span><span class=line><span class=cl><span class=nf>range</span><span class=p>(</span><span class=n>MCUFD_virus[[1]]</span><span class=o>$</span><span class=n>MCUFD</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># [1] 0.05668745 0.31468838</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Taxonomic ranks of the 100 most similar database entries:</span>
+</span></span><span class=line><span class=cl><span class=nf>table</span><span class=p>(</span><span class=n>MCUFD_virus[[1]]</span><span class=o>$</span><span class=n>Kingdom[1</span><span class=o>:</span><span class=m>100</span><span class=n>]</span><span class=p>,</span> <span class=n>useNA</span> <span class=o>=</span> <span class=s>&#34;always&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1>#         Fungi       Metazoa Viridiplantae          &lt;NA&gt;</span>
+</span></span><span class=line><span class=cl><span class=c1>#            20            45             7            28</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>MCUFD_enrich</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=n>MCUFD_virus</span><span class=p>,</span> <span class=n>n</span> <span class=o>=</span> <span class=m>100</span><span class=p>,</span> <span class=n>rank</span> <span class=o>=</span> <span class=s>&#34;Phylum&#34;</span><span class=p>,</span> <span class=n>ptype</span> <span class=o>=</span> <span class=s>&#34;heatmap&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>pthresh</span> <span class=o>=</span> <span class=m>0.05</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>dpi</span> <span class=o>=</span> <span class=m>200</span><span class=p>,</span> <span class=n>width</span> <span class=o>=</span> <span class=m>40</span><span class=p>,</span> <span class=n>height</span> <span class=o>=</span> <span class=m>7</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></div><p><img class=lazyload src=/svg/loading.min.svg data-src=/images/codondiffR-chunk-10-1.png data-srcset="/images/codondiffR-chunk-10-1.png, /images/codondiffR-chunk-10-1.png 1.5x, /images/codondiffR-chunk-10-1.png 2x" data-sizes=auto alt=/images/codondiffR-chunk-10-1.png title=/images/codondiffR-chunk-10-1.png></p><p>Note that the MCUFD enrichment values can be saved to file by using the <code>outtab</code> parameter - see the help page for the <code>MCUFD_enrich</code> function.</p><h1 id=principal-component-analysis-pca>Principal component analysis (PCA)</h1><p>PCA of entries in the Codon Usage Table Database (CUTD) (PMID: 23308027) can be calculated using the <code>PCA()</code> function. A subset of specific taxonomic groups can be included using includeTax. The <code>predict_PCA()</code> function will apply the principal components defined with <code>PCA()</code> to the sequences in the codonFreq object, and produce a plot of the first two components (PC1 and PC2).</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>includeTax</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;Arthropoda&#34;</span><span class=p>,</span> <span class=s>&#34;Streptophyta&#34;</span><span class=p>,</span>  <span class=s>&#34;Chordata&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>exclCod</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=s>&#34;TAA&#34;</span><span class=p>,</span> <span class=s>&#34;TAG&#34;</span><span class=p>,</span> <span class=s>&#34;TGA&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>PCA_dat</span> <span class=o>&lt;-</span> <span class=nf>PCA</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=n>exclude</span> <span class=o>=</span> <span class=n>exclCod</span><span class=p>,</span> <span class=n>rank</span> <span class=o>=</span> <span class=s>&#34;Phylum&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>corCut</span> <span class=o>=</span> <span class=m>1</span><span class=p>,</span> <span class=n>minlen</span> <span class=o>=</span> <span class=m>600</span><span class=p>,</span> <span class=n>includeTax</span> <span class=o>=</span> <span class=n>includeTax</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>class</span><span class=p>(</span><span class=n>PCA_dat</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># [1] &#34;prcomp&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>identifiers</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=nf>rep</span><span class=p>(</span><span class=s>&#34;Non-mammalian virus&#34;</span><span class=p>,</span> <span class=m>4</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=nf>rep</span><span class=p>(</span><span class=s>&#34;Mammalian virus&#34;</span><span class=p>,</span> <span class=m>10</span><span class=p>),</span> <span class=nf>rep</span><span class=p>(</span><span class=s>&#34;Non-mammalian virus&#34;</span><span class=p>,</span> <span class=m>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nf>predict_PCA</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=n>virusCF_norm</span><span class=p>,</span> <span class=n>PCA_dat</span><span class=p>,</span> <span class=n>rank</span> <span class=o>=</span> <span class=s>&#34;Phylum&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>minlen</span> <span class=o>=</span> <span class=m>600</span><span class=p>,</span> <span class=n>identifier</span> <span class=o>=</span> <span class=n>identifiers</span><span class=p>,</span> <span class=n>includeTax</span> <span class=o>=</span> <span class=n>includeTax</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=n>dpi</span> <span class=o>=</span> <span class=m>200</span><span class=p>,</span> <span class=n>width</span> <span class=o>=</span> <span class=m>40</span><span class=p>,</span> <span class=n>height</span> <span class=o>=</span> <span class=m>7</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></div><p><img class=lazyload src=/svg/loading.min.svg data-src=/images/codondiffR-chunk-11-1.png data-srcset="/images/codondiffR-chunk-11-1.png, /images/codondiffR-chunk-11-1.png 1.5x, /images/codondiffR-chunk-11-1.png 2x" data-sizes=auto alt=/images/codondiffR-chunk-11-1.png title=/images/codondiffR-chunk-11-1.png></p><h1 id=session-info>Session info</h1><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=nf>sessionInfo</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=c1># R version 4.1.3 (2022-03-10)</span>
+</span></span><span class=line><span class=cl><span class=c1># Platform: x86_64-redhat-linux-gnu (64-bit)</span>
+</span></span><span class=line><span class=cl><span class=c1># Running under: Fedora Linux 35 (Workstation Edition)</span>
+</span></span><span class=line><span class=cl><span class=c1>##</span>
+</span></span><span class=line><span class=cl><span class=c1># Matrix products: default</span>
+</span></span><span class=line><span class=cl><span class=c1># BLAS/LAPACK: /usr/lib64/libflexiblas.so.3.2</span>
+</span></span><span class=line><span class=cl><span class=c1>##</span>
+</span></span><span class=line><span class=cl><span class=c1># locale:</span>
+</span></span><span class=line><span class=cl><span class=c1>#  [1] LC_CTYPE=en_GB.UTF-8       LC_NUMERIC=C              </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [3] LC_TIME=en_GB.UTF-8        LC_COLLATE=en_GB.UTF-8    </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [5] LC_MONETARY=en_GB.UTF-8    LC_MESSAGES=en_GB.UTF-8   </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [7] LC_PAPER=en_GB.UTF-8       LC_NAME=C                 </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [9] LC_ADDRESS=C               LC_TELEPHONE=C            </span>
+</span></span><span class=line><span class=cl><span class=c1># [11] LC_MEASUREMENT=en_GB.UTF-8 LC_IDENTIFICATION=C       </span>
+</span></span><span class=line><span class=cl><span class=c1>##</span>
+</span></span><span class=line><span class=cl><span class=c1># attached base packages:</span>
+</span></span><span class=line><span class=cl><span class=c1># [1] grid      stats     graphics  grDevices utils     datasets  methods  </span>
+</span></span><span class=line><span class=cl><span class=c1># [8] base     </span>
+</span></span><span class=line><span class=cl><span class=c1>##</span>
+</span></span><span class=line><span class=cl><span class=c1># other attached packages:</span>
+</span></span><span class=line><span class=cl><span class=c1># [1] scales_1.2.1     plyr_1.8.7       ggplot2_3.3.6    codondiffR_0.1.0</span>
+</span></span><span class=line><span class=cl><span class=c1>##</span>
+</span></span><span class=line><span class=cl><span class=c1># loaded via a namespace (and not attached):</span>
+</span></span><span class=line><span class=cl><span class=c1>#   [1] nlme_3.1-155           bitops_1.0-7           fs_1.5.2              </span>
+</span></span><span class=line><span class=cl><span class=c1>#   [4] usethis_2.1.5          lubridate_1.8.0        devtools_2.4.3        </span>
+</span></span><span class=line><span class=cl><span class=c1>#   [7] RColorBrewer_1.1-3     GenomeInfoDb_1.30.1    ggbiplot_0.55         </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [10] tools_4.1.3            utf8_1.2.2             R6_2.5.1              </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [13] rpart_4.1.16           BiocGenerics_0.40.0    colorspace_2.0-3      </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [16] nnet_7.3-17            withr_2.5.0            tidyselect_1.1.2      </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [19] prettyunits_1.1.1      processx_3.7.0         curl_4.3.2            </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [22] compiler_4.1.3         factoextra_1.0.7       cli_3.3.0             </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [25] labeling_0.4.2         callr_3.7.2            proxy_0.4-27          </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [28] stringr_1.4.1          digest_0.6.29          rmarkdown_2.16        </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [31] XVector_0.34.0         pkgconfig_2.0.3        htmltools_0.5.3       </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [34] parallelly_1.32.1      sessioninfo_1.2.2      highr_0.9             </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [37] fastmap_1.1.0          rlang_1.0.5            farver_2.1.1          </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [40] generics_0.1.3         dplyr_1.0.10           ModelMetrics_1.2.2.2  </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [43] RCurl_1.98-1.6         magrittr_2.0.3         GenomeInfoDbData_1.2.7</span>
+</span></span><span class=line><span class=cl><span class=c1>#  [46] Matrix_1.4-0           S4Vectors_0.32.3       Rcpp_1.0.9            </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [49] munsell_0.5.0          fansi_1.0.3            lifecycle_1.0.1       </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [52] stringi_1.7.8          pROC_1.18.0            yaml_2.3.5            </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [55] zlibbioc_1.40.0        MASS_7.3-55            pkgbuild_1.3.1        </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [58] recipes_1.0.1          ggrepel_0.9.1          parallel_4.1.3        </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [61] listenv_0.8.0          crayon_1.5.1           lattice_0.20-45       </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [64] Biostrings_2.62.0      splines_4.1.3          knitr_1.40            </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [67] ps_1.7.1               pillar_1.8.1           future.apply_1.9.0    </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [70] reshape2_1.4.4         codetools_0.2-18       stats4_4.1.3          </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [73] pkgload_1.3.0          glue_1.6.2             evaluate_0.16         </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [76] data.table_1.14.2      remotes_2.4.2          vctrs_0.4.1           </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [79] foreach_1.5.2          gtable_0.3.1           purrr_0.3.4           </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [82] future_1.27.0          cachem_1.0.6           xfun_0.32             </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [85] gower_1.0.0            prodlim_2019.11.13     e1071_1.7-11          </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [88] class_7.3-20           survival_3.2-13        timeDate_4021.104     </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [91] tibble_3.1.8           iterators_1.0.14       IRanges_2.28.0        </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [94] memoise_2.0.1          hardhat_1.2.0          lava_1.6.10           </span>
+</span></span><span class=line><span class=cl><span class=c1>#  [97] globals_0.16.1         ellipsis_0.3.2         caret_6.0-93          </span>
+</span></span><span class=line><span class=cl><span class=c1># [100] ipred_0.9-13</span>
+</span></span></code></pre></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 2022-09-01</span></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://adamd3.github.io/posts/codondiffr/codondiffr/ data-title="Introducing codondiffR"><i class="fab fa-twitter fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://adamd3.github.io/posts/codondiffr/codondiffr/><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Linkedin" data-sharer=linkedin data-url=https://adamd3.github.io/posts/codondiffr/codondiffr/><i class="fab fa-linkedin fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Hacker News" data-sharer=hackernews data-url=https://adamd3.github.io/posts/codondiffr/codondiffr/ data-title="Introducing codondiffR"><i class="fab fa-hacker-news fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Line" data-sharer=line data-url=https://adamd3.github.io/posts/codondiffr/codondiffr/ data-title="Introducing codondiffR"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg aria-hidden=true></i></a><a href=javascript:void(0); title="Share on 微博" data-sharer=weibo data-url=https://adamd3.github.io/posts/codondiffr/codondiffr/ data-title="Introducing codondiffR"><i class="fab fa-weibo fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/posts/welcome/ class=prev rel=prev title="Welcome to my personal blog"><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>Welcome to my personal blog</a></div></div></article></div></main></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
 </a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:50},comment:{},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!0,left:"\\begin{equation}",right:"\\end{equation}"},{display:!0,left:"\\begin{equation*}",right:"\\end{equation*}"},{display:!0,left:"\\begin{align}",right:"\\end{align}"},{display:!0,left:"\\begin{align*}",right:"\\end{align*}"},{display:!0,left:"\\begin{alignat}",right:"\\end{alignat}"},{display:!0,left:"\\begin{alignat*}",right:"\\end{alignat*}"},{display:!0,left:"\\begin{gather}",right:"\\end{gather}"},{display:!0,left:"\\begin{CD}",right:"\\end{CD}"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{highlightTag:"em",maxResultLength:10,noResultsFound:"No results found",snippetLength:30}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
