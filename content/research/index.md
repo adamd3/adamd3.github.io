@@ -7,7 +7,7 @@ draft: false
 
 # Research interests
 
-Broadly speaking, I am interested in developing statistical and machine learning approaches to uncover novel insights in molecular biological data. I have worked with a variety of genome-scale and population-level data sets, in both humans and microbial pathogens.
+Broadly speaking, I am interested in developing and applying statistical and machine learning approaches to describe biological data and uncover novel insights. I have worked with a variety of genome-scale and population-level data sets, in both humans and microbial pathogens.
 
 ### Machine learning (ML) to improve disease understanding and healthcare
 
