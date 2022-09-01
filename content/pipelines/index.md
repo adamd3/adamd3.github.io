@@ -29,4 +29,4 @@ draft: false
 
 <img src="https://adamd3.github.io/images/codondiffR.png" alt="drawing" width="200" height="231"/>
 
-**codondiffR** is an R package for the calculation, visualisation, and comparative analysis of codon usage metrics in user-supplied protein-coding nucleotide sequences. The package is designed primarily for the analysis of viral open reading frames (ORFs), with the intention of identifying potential host taxa based on overall codon usage similarity, but it can be used for the comparison of any protein-coding input sequence(s).
+**[codondiffR](https://github.com/adamd3/codondiffR)** is an R package for the calculation, visualisation, and comparative analysis of codon usage metrics in user-supplied protein-coding nucleotide sequences. The package is designed primarily for the analysis of viral open reading frames (ORFs), with the intention of identifying potential host taxa based on overall codon usage similarity, but it can be used for the comparison of any protein-coding input sequence(s).
