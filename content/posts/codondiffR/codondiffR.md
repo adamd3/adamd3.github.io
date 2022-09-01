@@ -13,7 +13,7 @@ Here, the functionality of codondiffR is explored with a walkthrough of the vari
 
 To install and load codondiffR, run the following commands in R:
 
-    ```R
+    ```
     # install.packages("devtools")
     devtools::install_github("adamd3/codondiffR")
     library(codondiffR)
@@ -23,7 +23,7 @@ To install and load codondiffR, run the following commands in R:
 
 To read in one or more sequences from a fasta-format file, we use the `readSeq()` function from the Biostrings package, as shown below. The `DNAStringSet` object can then be used to generate a codonFreq object:
 
-    ```R
+    ```
     fastaFile <- system.file(
         "extdata", "example_viruses.fna", package="codondiffR"
     )
@@ -47,7 +47,7 @@ To read in one or more sequences from a fasta-format file, we use the `readSeq()
 
 The relative codon frequencies, along with the names and lengths (in codons) of each sequence, are stored in the codonFreq object, which is the main container for all subsequent analytical procedures. We can access the identifiers, lengths of sequences, and codon frequencies as follows:
 
-    ```R
+    ```
     nseq(virusCF)
 
     ## [1] 16
@@ -80,7 +80,7 @@ The relative codon frequencies, along with the names and lengths (in codons) of 
 
 Subsetting functionality for a codonFreq object essentially works the same as `Base::Extract` - you pass the numeric indices of the subset in the format: `x[i, j]`; where `x` is the codonFreq object, `i` are the indices of rows (sequences) in the object to be included in the subset, and `j` are the columns (codons) to be included.
 
-    ```R
+    ```
     ## Subset to the first 10 sequences, including all 64 codons:
     virusCF_sub_1 <- virusCF[1:10,1:64]
 
@@ -97,20 +97,21 @@ Subsetting functionality for a codonFreq object essentially works the same as `B
 
 To plot the relative codon frequencies, call the codonPlot() function on the codonFreq object as shown below. Various attributes of the output figure can be specified using the parameters `height`, `width`, `dpi`, and `fname`. See the function’s help page for more information. If a groups vector is supplied, then codon frequencies will be plotted by group. Note that all plotting functions in the package will return a ggplot object, which can be used to modify or combine figures.
 
-    ```R
+    ```
     codonPlot(virusCF)
 
     ## Using Taxon as id variables
-    ![](/images/codondiffR-chunk-5-1.png)
+
     ```
 
+    ![](/images/codondiffR-chunk-5-1.png)
 
 
 For these and all other plots, it is possible to save the plot to file when calling the function, by setting `save = TRUE` when calling `codonPlot` (or any other plot-producing function), and the height, width, file name and dpi of the saved figure can be specified. See the help pages for each function.
 
 It is also possible to make grouped codon plots as follows:
 
-    ```R
+    ```
     groups <- c(
         rep("Non-mammalian virus", 4),
         rep("Mammalian virus", 10), rep("Non-mammalian virus", 2)
@@ -119,14 +120,15 @@ It is also possible to make grouped codon plots as follows:
     codonPlot(virusCF, groups = groups, width = 40, height = 7)
 
     ## Using Taxon, groups as id variables
-    ![](/images/codondiffR-chunk-6-1.png)
     ```
+
+    ![](/images/codondiffR-chunk-6-1.png)
 
 
 
 It is also possible to plot the GC3 content (i.e. proportion of codons with a G or a C residue at the third position) across the sequences. A groups vector is required here; and it must be the same length as the number of sequences in the codonFreq object.
 
-    ```R
+    ```
     groups <- c(
         rep("Plant virus", 2), rep("Insect virus", 2),
         rep("Mammal-specific virus", 6), rep("Mammalian and Insect virus", 4), rep("Insect-specific virus", 2)
@@ -135,16 +137,17 @@ It is also possible to plot the GC3 content (i.e. proportion of codons with a G
     gcPlot(virusCF, groups = groups, width = 40, height = 7)
 
     ## Using Taxon, groups as id variables
-    ![](/images/codondiffR-chunk-7-1.png)
+
     ```
 
+    ![](/images/codondiffR-chunk-7-1.png)
 
 
 # Normalisation and codon bias calculation
 
 Normalisation of codon frequencies transforms the raw frequencies of individual codons into the relative proportions for each amino acid. For example, if half of all alanine-encoding codons are GCC and the other half are GCG, then the normalised abundances of these two codons will both be 0.5, and the abundances of the other two alanine-encoding codons (GCT and GCA) will be 0. When an amino acid is not found in a given sequence, then the proportions of each of the corresponding codons will be NA.
 
-    ```R
+    ```
     virusCF_norm <- normalise(virusCF)
 
     head(getFreqs(virusCF_norm)[,1:6])
@@ -162,7 +165,7 @@ Normalisation of codon frequencies transforms the raw frequencies of individual 
 
 Codon bias can be plotted using normalised frequencies per amino acid:
 
-    ```R
+    ```
     groups <- c(
         rep("Non-mammalian virus", 4),
         rep("Mammalian virus", 10), rep("Non-mammalian virus", 2)
@@ -174,8 +177,9 @@ Codon bias can be plotted using normalised frequencies per amino acid:
     )
 
     ## Using Taxon, groups as id variables
-    ![](/images/codondiffR-chunk-9-1.png)
     ```
+
+    ![](/images/codondiffR-chunk-9-1.png)
 
 
 
@@ -187,7 +191,7 @@ The results can then be plotted using the `MCUFD_plot` function, and the type ar
 
 Enrichment testing allows an assessment of the relative over- or under-representation of specific taxonomic ranks in the top n hits. Enrichment plot type is determined by the ptype parameter, which accepts either `heatmap` (default) or `dotplot`. An optional p-value threshold, based on the results of Fisher’s exact test, can also be applied using pthresh. The results of the enrichment testing can also be saved in tab-delimited format to a file, via `outtab`.
 
-    ```R
+    ```
     exclCod <- c("TAA", "TAG", "TGA")
     MCUFD_virus <- MCUFD(virusCF_norm, exclude = exclCod, minlen = 600)
 
@@ -211,8 +215,9 @@ Enrichment testing allows an assessment of the relative over- or under-represent
         pthresh = 0.05,
         dpi = 200, width = 40, height = 7
     )
-    ![](/images/codondiffR-chunk-10-1.png)
     ```
+
+    ![](/images/codondiffR-chunk-10-1.png)
 
 
 
@@ -222,7 +227,7 @@ Note that the MCUFD enrichment values can be saved to file by using the `outtab`
 
 PCA of entries in the Codon Usage Table Database (CUTD) (PMID: 23308027) can be calculated using the `PCA()` function. A subset of specific taxonomic groups can be included using includeTax. The `predict_PCA()` function will apply the principal components defined with `PCA()` to the sequences in the codonFreq object, and produce a plot of the first two components (PC1 and PC2).
 
-    ```R
+    ```
     includeTax <- c(
         "Arthropoda", "Streptophyta",  "Chordata"
     )
@@ -246,8 +251,9 @@ PCA of entries in the Codon Usage Table Database (CUTD) (PMID: 23308027) can be 
         minlen = 600, identifier = identifiers, includeTax = includeTax,
         dpi = 200, width = 40, height = 7
     )
-    ![](/images/codondiffR-chunk-11-1.png)
     ```
+
+    ![](/images/codondiffR-chunk-11-1.png)
 
 
 
