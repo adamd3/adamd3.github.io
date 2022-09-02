@@ -1,11 +1,8 @@
 ---
-title: ""
+title: "Publications"
 date: 2022-08-31T14:35:21+01:00
 draft: false
 ---
-
-
-# Publications
 
 ## 2022
 

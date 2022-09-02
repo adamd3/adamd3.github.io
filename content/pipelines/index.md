@@ -1,11 +1,8 @@
 ---
-title: ""
+title: "Pipelines and packages"
 date: 2022-09-01T14:35:21+01:00
 draft: false
 ---
-
-
-# Pipelines and packages
 
 ## StrainSeq
 

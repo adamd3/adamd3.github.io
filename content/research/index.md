@@ -1,11 +1,8 @@
 ---
-title: ""
+title: "Research interests"
 date: 2022-08-31T14:35:21+01:00
 draft: false
 ---
-
-
-# Research interests
 
 Broadly speaking, I am interested in developing and applying statistical and machine learning approaches to describe biological data and uncover novel insights. I have worked with a variety of genome-scale and population-level data sets, in both humans and microbial pathogens.
 
