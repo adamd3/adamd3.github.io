@@ -4,7 +4,7 @@ date: 2022-09-01T14:15:45+01:00
 draft: false
 ---
 
-<img src="https://adamd3.github.io/images/codondiffR.png" alt="codondiffR" width="200" height="231">
+![codondiffR](/images/codondiffR.png)
 
 codondiffR is an R package for the calculation, visualisation, and comparative analysis of codon usage metrics in user-supplied protein-coding nucleotide sequences.
 

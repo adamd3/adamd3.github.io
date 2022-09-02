@@ -3,6 +3,7 @@ title: "Welcome to my personal blog"
 date: 2022-08-31T14:15:45+01:00
 draft: false
 ---
+
 I am a Postdoctoral Research Associate in the Department of Medicine at the University of Cambridge and in the Laboratory of Molecular Biology, Cambridge. I am interested in the development and application of computational methods for functional genomic annotation using large scale data sets from bacteria, viruses, and humans.
 
 I completed my PhD at University College Dublin, where I received a fellowship from the Wellcome Trust as part of the Computational Infection Biology programme.
