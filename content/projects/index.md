@@ -1,10 +1,12 @@
 ---
-title: "Pipelines and packages"
+title: "Projects"
 date: 2022-09-01T14:35:21+01:00
 draft: false
 ---
 
-## StrainSeq
+## Nextflow pipelines
+
+### StrainSeq
 
 [![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A521.10.3-23aa62.svg?labelColor=000000)](https://www.nextflow.io/)
 
@@ -14,7 +16,7 @@ draft: false
 
 **[StrainSeq](https://github.com/adamd3/StrainSeq)** is a Nextflow pipeline for performing strain-specific bacterial RNA-Seq analysis without a reference genome. It is written in Python, Groovy, and R.
 
-## BactSeq
+### BactSeq
 
 [![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A521.10.3-23aa62.svg?labelColor=000000)](https://www.nextflow.io/)
 
@@ -24,10 +26,20 @@ draft: false
 
 **[BactSeq](https://github.com/adamd3/BactSeq)** is a Nextflow pipeline for analysing bacterial RNA-Seq data using a reference genome and an arbitrary number of conditions. It is written in Python, Groovy, and R.
 
-## codondiffR
+## R packages
+
+### codondiffR
 
 ![codondiffR](/images/codondiffR.png)
 
 **[codondiffR](https://github.com/adamd3/codondiffR)** is an R package for the calculation, visualisation, and comparative analysis of codon usage metrics in user-supplied protein-coding nucleotide sequences. The package is designed primarily for the analysis of viral open reading frames (ORFs), with the intention of identifying potential host taxa based on overall codon usage similarity, but it can be used for the comparison of any protein-coding input sequence(s).
 
 You can find an Introductory Vignette describing the main features of the package [here](https://adamd3.github.io/posts/codondiffr/codondiffr/).
+
+## Web apps
+
+### Cystic Fibrosis gene expression browser
+
+The [Cystic Fibrosis gene expression browser](https://blueprint.haem.cam.ac.uk/cfbrowser/) provides access to multiple gene expression and epigenetic data sets generated as part of the Varsity Project at the University of Cambridge. It is hosted by the [Department of Haematology](https://www.haem.cam.ac.uk/).
+
+Gene and transcript expression can be visualised and accessed via the Shiny Apps, and genome-wide H3K27Ac acetylation data are provided in the [UCSC browser](https://genome.ucsc.edu/).

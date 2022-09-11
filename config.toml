@@ -46,19 +46,11 @@ theme = "LoveIt"
     title = ""
   [[menu.main]]
     weight = 5
-    identifier = "apps"
+    identifier = "projects"
     pre = ""
     post = ""
-    name = "Web apps"
-    url = "/apps/"
-    title = ""
-  [[menu.main]]
-    weight = 6
-    identifier = "pipelines"
-    pre = ""
-    post = ""
-    name = "Pipelines"
-    url = "/pipelines/"
+    name = "Projects"
+    url = "/projects/"
     title = ""
 
 [markup]
