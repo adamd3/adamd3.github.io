@@ -39,6 +39,11 @@ Irigoyen N, **Dinan AM**, Brierley I, Firth AE. Ribosome profiling of the retrov
 Stewart H, Brown K, **Dinan AM**, Irigoyen N, Snijder EJ, Firth AE. Transcriptional and translational landscape of equine torovirus.<br />
 *Journal of Virology*. 2018 Sep 1;92(17):e00589-18.
 
+## 2017
+
+**Dinan AM**, Atkins JF, Firth AE. ASXL gain-of-function truncation mutants: defective and dysregulated forms of a natural ribosomal frameshifting product?<br />
+*Biology Direct*. 2017 Oct 16;12(24):1-6.
+
 ## 2016
 
 Miranda-CasoLuengo AA, Staunton PM, **Dinan AM**, Lohan AJ, Loftus BJ. Functional characterization of the Mycobacterium abscessus genome coupled with condition specific transcriptomics reveals conserved molecular strategies for host adaptation and persistence.<br />
