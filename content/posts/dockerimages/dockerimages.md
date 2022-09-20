@@ -41,7 +41,7 @@ RUN R -e 'install.packages(c(  \
     "scales", "pheatmap", "matrixstats", "umap", "BiocManager"))'
 
 # Install Bioconductor packages
-RUN R -e 'BiocManager::install(c("edgeR", "DESeq2")'
+RUN R -e 'BiocManager::install(c("edgeR", "DESeq2"))'
 ```
 
 To summarise, the `FROM` statement indicates the base container (e.g. an OS image), which will be pulled if not locally available. Ideally, the base OS should be as small as possibly while retaining functionality. Ubuntu is a solid choice because they provide minimal versions of the OS as Docker images (these exclude unnecessary documentation, editors, etc.), and this reduces the size of the standard server image by 50%. Alpine Linux is even more minimilistic and is another good option. For a debian-based OS, we can disable interactive installation of necessary software by setting `DEBIAN_FRONTEND=noninteractive` with the `ARG` statement.
