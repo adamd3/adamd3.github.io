@@ -98,7 +98,7 @@ To plot the relative codon frequencies, call the codonPlot() function on the cod
 codonPlot(virusCF)
 ## Using Taxon as id variables
 ```
-![](/content/posts/codondiffR/codondiffR-chunk-5-1.png)
+![](/images/codondiffR/codondiffR-chunk-5-1.png)
 
 
 For these and all other plots, it is possible to save the plot to file when calling the function, by setting `save = TRUE` when calling `codonPlot` (or any other plot-producing function), and the height, width, file name and dpi of the saved figure can be specified. See the help pages for each function.
@@ -114,7 +114,7 @@ groups <- c(
 codonPlot(virusCF, groups = groups, width = 40, height = 7)
 ## Using Taxon, groups as id variables
 ```
-![](/content/posts/codondiffR/codondiffR-chunk-6-1.png)
+![](/images/codondiffR/codondiffR-chunk-6-1.png)
 
 
 
@@ -129,7 +129,7 @@ groups <- c(
 gcPlot(virusCF, groups = groups, width = 40, height = 7)
 ## Using Taxon, groups as id variables
 ```
-![](/content/posts/codondiffR/codondiffR-chunk-7-1.png)
+![](/images/codondiffR/codondiffR-chunk-7-1.png)
 
 
 ## Normalisation and codon bias calculation
@@ -165,7 +165,7 @@ biasPlot(
 )
 ## Using Taxon, groups as id variables
 ```
-![](/content/posts/codondiffR/codondiffR-chunk-9-1.png)
+![](/images/codondiffR/codondiffR-chunk-9-1.png)
 
 
 ## Comparison with codon usage in other taxa
@@ -198,7 +198,7 @@ MCUFD_enrich(
     dpi = 200, width = 40, height = 7
 )
 ```
-![](/content/posts/codondiffR/codondiffR-chunk-10-1.png)
+![](/images/codondiffR/codondiffR-chunk-10-1.png)
 
 
 Note that the MCUFD enrichment values can be saved to file by using the `outtab` parameter - see the help page for the `MCUFD_enrich` function.
@@ -231,7 +231,7 @@ predict_PCA(
     dpi = 200, width = 40, height = 7
 )
 ```
-![](/content/posts/codondiffR/codondiffR-chunk-11-1.png)
+![](/images/codondiffR/codondiffR-chunk-11-1.png)
 
 
 ## Session info
