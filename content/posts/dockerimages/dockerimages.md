@@ -46,7 +46,7 @@ RUN R -e 'install.packages(c(  \
     ), repos="http://cloud.r-project.org/")'
 
 # Install Bioconductor packages
-RUN R -e 'BiocManager::install(c("edgeR", "DESeq2", ask = FALSE))'
+RUN R -e 'BiocManager::install(c("edgeR", "DESeq2")'
 ```
 
 
