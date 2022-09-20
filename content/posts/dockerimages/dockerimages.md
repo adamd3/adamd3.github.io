@@ -17,7 +17,7 @@ LABEL maintainer="Adam Dinan <adam1989ie@gmail.com>"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-## requirements file for pip installation
+# Requirements file for pip installation
 COPY requirements.txt /tmp
 WORKDIR /tmp
 
@@ -31,14 +31,14 @@ RUN apt-get update && \
 # Install Python modules
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install R libraries
+# Set repo for R package installation
 RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.rstudio.com'; \
     options(repos = r);" > ~/.Rprofile
 
+# Install R libraries
 RUN R -e 'install.packages(c(  \
     "optparse", "rcolorbrewer", "reshape2", "ggplot2", "tidyr",  \
-    "scales", "pheatmap", "matrixstats", "umap", "BiocManager"   \
-    ), repos="http://cloud.r-project.org/")'
+    "scales", "pheatmap", "matrixstats", "umap", "BiocManager"))'
 
 # Install Bioconductor packages
 RUN R -e 'BiocManager::install(c("edgeR", "DESeq2")'
