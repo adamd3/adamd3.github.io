@@ -16,6 +16,8 @@ LABEL maintainer="Adam Dinan <adam1989ie@gmail.com>"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+ADD https://raw.githubusercontent.com/adamd3/StrainSeq/main/requirements.txt .
+
 # Requirements file for pip installation
 COPY requirements.txt /tmp
 WORKDIR /tmp
