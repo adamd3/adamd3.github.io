@@ -4,12 +4,11 @@ date: 2022-09-20T10:15:45+01:00
 draft: false
 ---
 
-Bioinformatics pipelines are often notoriously difficult to reproduce, often consisting of a complex mixture of Bash executions and scripting in high-level languages such as Python/R/Perl, involving the use of modules and libraries with large lists of dependencies.
+Bioinformatics pipelines are often difficult to reproduce, consisting of a mixture of Bash executions and scripting, involving the use of modules and libraries with large lists of dependencies.
 
-This problem has come increasingly into focus as scientific progress becomes ever-more reliant on analyses of large-scale data sets and reproducibility at all scales is seen as paramount.
-In the short history of the field to date, it has been common practice for pipelines to be constructed as large, indecipherable and sparsely documented shell scripts, the relevance of which only the author (if anyone) was aware.
+The problem of reproducibility has come more sharply into focus as science continues to consist increasingly of large-scale data set analyses. In the short history of the field of Bioinformatics, it has been common practice for pipelines to be constructed as large, indecipherable and sparsely documented shell scripts.
 
-Enter workflow managers and Docker. My preference in this regard has been to invest time in the [Nextflow](https://www.nextflow.io/) framework, which allows seemless integration of software containers. To build a Docker container image for a NextFlow pipeline, we simply create a `Dockerfile` in the project's main directory. This file contains the instructions that Docker will use to build the image required to run the pipeline; everything from the base distribution used to the software and packages required. Below is an example Dockerfile that I constructed for the [StrainSeq pipeline](https://github.com/adamd3/StrainSeq/). OpenSource have an excellent set of tips [here](https://opensource.com/article/20/5/optimize-container-builds) for optimising container builds. You can also find best practices for the formatting of the Dockerfile file [on the Docker website](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
+Enter workflow managers and Docker. My preference in this regard has been to use the [Nextflow](https://www.nextflow.io/) framework, which allows seemless integration of software containers. To build a Docker container image for a NextFlow pipeline, we simply create a `Dockerfile` in the project's main directory. This file contains the instructions that Docker will use to build the image required to run the pipeline; everything from the base distribution used to the software and packages required. Below is an example Dockerfile that I constructed for the [StrainSeq pipeline](https://github.com/adamd3/StrainSeq/). OpenSource have an excellent set of tips [here](https://opensource.com/article/20/5/optimize-container-builds) for optimising container builds. You can also find best practices for the formatting of the Dockerfile file [on the Docker website](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
 
 ```dockerfile
 FROM ubuntu:22.04
@@ -37,7 +36,7 @@ RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.rstudio.com'; \
 
 # Install R libraries
 RUN R -e 'install.packages(c(  \
-    "optparse", "rcolorbrewer", "reshape2", "ggplot2", "tidyr",  \
+    "optparse", "RColorBrewer", "reshape2", "ggplot2", "tidyr",  \
     "scales", "pheatmap", "matrixstats", "umap", "BiocManager"))'
 
 # Install Bioconductor packages
