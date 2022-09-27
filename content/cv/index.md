@@ -12,13 +12,14 @@ Postdoctoral Research Associate.
 ## Areas of expertise
 
 - Statistical analysis of genetic and genomic data
+- Software test development and packaging (Python)
+- Continuous integration (GitHub Actions)
+- Bioinformatics pipeline development (Nextflow, Bash)
 - Machine learning: model choice, development, application
 - Data visualisation
-- Package development and object-oriented programming
-- SQL and non-relational databases
-- Shiny App development and hosting
-- Pipeline development using workflow managers (Nextflow)
-- Version control and best practices
+- Package development and object-oriented programming (Python, R)
+- Web App development and hosting
+- Version control and best practices (Git)
 - Working in high-performance computing (HPC) environment and on cloud-based platforms (AWS)
 
 ## Research interests
