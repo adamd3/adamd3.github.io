@@ -6,9 +6,9 @@ draft: false
 
 ## Nextflow pipelines
 
-### StrainSeq
+### OrthoQuant
 
-![StrainSeq](/images/StrainSeq_logo_light.png)
+![OrthoQuant](/images/OrthoQuant_logo.png)
 
 [![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A521.10.3-23aa62.svg?labelColor=000000)](https://www.nextflow.io/)
 
@@ -16,7 +16,7 @@ draft: false
 [![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed.svg?labelColor=000000&logo=docker)](https://www.docker.com/)
 [![run with singularity](https://img.shields.io/badge/run%20with-singularity-1d355c.svg?labelColor=000000)](https://sylabs.io/docs/)
 
-**[StrainSeq](https://github.com/adamd3/StrainSeq)** is a Nextflow pipeline for performing strain-specific bacterial RNA-Seq analysis without a reference genome. It is written in Python, Groovy, and R.
+**[OrthoQuant](https://github.com/adamd3/OrthoQuant)** is a Nextflow pipeline for performing strain-specific bacterial RNA-Seq analysis without a reference genome. It is written in Python, Groovy, and R.
 
 ### BactSeq
 
