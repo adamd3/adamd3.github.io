@@ -8,7 +8,7 @@ Bioinformatics pipelines are often difficult to reproduce, consisting of a mixtu
 
 The problem of reproducibility has come more sharply into focus as science consists increasingly of analyses of large-scale data sets. In the short history of the field of Bioinformatics, it has been common practice for pipelines to be constructed as large, indecipherable and sparsely documented shell scripts.
 
-Enter workflow managers and Docker. My preference in this regard has been to use the [Nextflow](https://www.nextflow.io/) framework, which allows seemless integration of software containers. To build a Docker container image for a NextFlow pipeline, we simply create a `Dockerfile` in the project's main directory. This file contains the instructions that Docker will use to build the image required to run the pipeline; everything from the base distribution used to the software and packages required. Below is an example Dockerfile that I constructed for the [StrainSeq pipeline](https://github.com/adamd3/StrainSeq/). OpenSource have an excellent set of tips [here](https://opensource.com/article/20/5/optimize-container-builds) for optimising container builds. You can also find best practices for the formatting of the Dockerfile file [on the Docker website](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
+Enter workflow managers and Docker. My preference in this regard has been to use the [Nextflow](https://www.nextflow.io/) framework, which allows seemless integration of software containers. To build a Docker container image for a NextFlow pipeline, we simply create a `Dockerfile` in the project's main directory. This file contains the instructions that Docker will use to build the image required to run the pipeline; everything from the base distribution used to the software and packages required. Below is an example Dockerfile that I constructed for the [OrthoQuant pipeline](https://github.com/adamd3/OrthoQuant/). OpenSource have an excellent set of tips [here](https://opensource.com/article/20/5/optimize-container-builds) for optimising container builds. You can also find best practices for the formatting of the Dockerfile file [on the Docker website](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
 
 ```dockerfile
 FROM ubuntu:22.04
@@ -16,7 +16,7 @@ LABEL maintainer="Adam Dinan <adam1989ie@gmail.com>"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-ADD https://raw.githubusercontent.com/adamd3/StrainSeq/main/requirements.txt .
+ADD https://raw.githubusercontent.com/adamd3/OrthoQuant/main/requirements.txt .
 
 # Requirements file for pip installation
 COPY requirements.txt /tmp
@@ -54,6 +54,6 @@ To minimise the size of the container, it's also good practice to clean up the c
 In the specific case of R, it's important to note that many bioinformatics packages are housed in the specialised Bioconductor repository, and hence are not installable through a standard call to a function such as `install.packages` in R.
 Such packages can be installed by first installing the `BiocManager` package from CRAN (as below), and then including a separate call to `BiocManager::install`. By setting `ask = TRUE`, we also automate the installation of updates non-interactively.
 
-Before building, make sure that you have a registered account at [Docker Hub](https://hub.docker.com/). Build the image like so: `docker build -t adamd3/strainseq .`, which allows you to also tag the Docker Hub repo, and then test using `docker run -ti strainseq`. Try loading any of the Python modules or R packages to see that it worked OK.
+Before building, make sure that you have a registered account at [Docker Hub](https://hub.docker.com/). Build the image like so: `docker build -t adamd3/OrthoQuant .`, which allows you to also tag the Docker Hub repo, and then test using `docker run -ti OrthoQuant`. Try loading any of the Python modules or R packages to see that it worked OK.
 
 When you're ready, push the Dockerfile to Docker Hub.
