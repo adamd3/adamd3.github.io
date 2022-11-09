@@ -7,7 +7,8 @@ draft: false
 ## Current role
 
 Postdoctoral Research Associate.
-[Department of Medicine, University of Cambridge](https://www.med.cam.ac.uk/) and [MRC Laboratory of Molecular Biology](https://www2.mrc-lmb.cam.ac.uk/).
+[Department of Medicine, University of Cambridge](https://www.med.cam.ac.uk/), [MRC Laboratory of Molecular Biology](https://www2.mrc-lmb.cam.ac.uk/), and [Cambridge Centre for AI in Medicine](https://ccaim.cam.ac.uk/)
+
 
 ## Areas of expertise
 
