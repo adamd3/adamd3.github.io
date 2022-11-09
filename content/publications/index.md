@@ -6,8 +6,9 @@ draft: false
 
 ## 2022
 
-**Dinan AM**, Eneje O, Brown KP, Burden F, Morse M, Prinjha R, Frontini M, Floto RA. Epigenetic and transcriptional plasticity of myeloid cells in Cystic Fibrosis.<br /><br />
+**Dinan AM***, Eneje O*, Brown KP, Burden F, Morse M, Prinjha R, Frontini M, Floto RA. Epigenetic and transcriptional plasticity of myeloid cells in Cystic Fibrosis.<br /><br />
 *bioRxiv*. 2022 (preprint).
+* Equal contributors
 
 Cook GM, Brown K, Shang P, Li Y, Soday L, **Dinan AM**, Tumescheit C, Mockett AA, Fang Y, Firth AE, Brierley I. Ribosome profiling of porcine reproductive and respiratory syndrome virus reveals novel features of viral gene expression.<br /><br />
 *Elife*. 2022 Feb 28;11:e75668.
