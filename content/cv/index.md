@@ -11,9 +11,9 @@ Postdoctoral Research Associate.
 
 ## Areas of expertise
 
-- Integrative analysis of genome-scale omics data sets (genomics, transcriptomics, proteomics, epigenomics)
+- Integrative analysis of genome-scale omics data sets (genomics, transcriptomics, proteomics, epigenomics, CRISPR, CRISPRi)
 - Bioinformatics pipeline development (Nextflow, Bash)
-- Containerisation systems (Docker, Singularity) and package/environment management systems (Conda).
+- Containerisation systems (Docker, Singularity) and package/environment management systems (Conda)
 - Continuous integration, testing, packaging (GitHub Actions)
 - High-performance computing (HPC) environment and on cloud-based platforms (AWS)
 - Machine learning: model choice, development, application
