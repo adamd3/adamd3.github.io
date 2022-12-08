@@ -12,7 +12,7 @@ Enter workflow managers and Docker. My preference in this regard has been to use
 
 ```dockerfile
 FROM ubuntu:22.04
-LABEL maintainer="Adam Dinan <adam1989ie@gmail.com>"
+LABEL maintainer="Adam Dinan"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
