@@ -10,4 +10,4 @@ I completed my PhD at University College Dublin, where I received a fellowship f
 
 Since graduating, I have worked with Professor Andrew Firth in the Department of Pathology, University of Cambridge, and more recently with Professor Andres Floto in the Laboratory of Molecular Biology and Department of Medicine, University of Cambridge.
 
-I will use this space to discuss bioinformatics, data visualisation, machine learning, genomics, genetics and related topics. Please feel free to contact me if you would like to discuss anything further with me.
+I will use this space to discuss genomics, genetics, bioinformatics, data visualisation, machine learning, and related topics. Please feel free to contact me if you would like to discuss anything further with me.
