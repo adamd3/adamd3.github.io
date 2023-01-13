@@ -4,6 +4,8 @@ date: 2022-09-20T10:15:45+01:00
 draft: false
 ---
 
+{{< style "text-align:justify; strong{color:#00b1ff;}" >}}
+
 Bioinformatics pipelines are often difficult to reproduce, consisting of a mixture of Bash executions and scripting, involving the use of modules and libraries with large lists of dependencies.
 
 The problem of reproducibility has come more sharply into focus as science consists increasingly of analyses of large-scale data sets. In the short history of the field of Bioinformatics, it has been common practice for pipelines to be constructed as large, indecipherable and sparsely documented shell scripts.
@@ -57,3 +59,5 @@ Such packages can be installed by first installing the `BiocManager` package fro
 Before building, make sure that you have a registered account at [Docker Hub](https://hub.docker.com/). Build the image like so: `docker build -t adamd3/OrthoQuant .`, which allows you to also tag the Docker Hub repo, and then test using `docker run -ti OrthoQuant`. Try loading any of the Python modules or R packages to see that it worked OK.
 
 When you're ready, push the Dockerfile to Docker Hub.
+
+{{< /style >}}

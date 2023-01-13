@@ -4,6 +4,8 @@ date: 2022-12-11
 draft: false
 ---
 
+{{< style "text-align:justify; strong{color:#00b1ff;}" >}}
+
 Antibiotics are the single most effective medical tool for the treatment of bacterial infections. These drugs work by killing or inhibiting the growth of bacteria, while generally being non-toxic to human cells. 
 
 Unfortunately, the excessive application of antibiotics can [promote the emergence of drug-resistant strains of bacteria](https://pubmed.ncbi.nlm.nih.gov/25271470/). As a result, clinicians have increasingly begun to [employ multiple antibiotics](https://pubmed.ncbi.nlm.nih.gov/17997179/) in combination. 
@@ -27,3 +29,5 @@ What is perhaps most striking about the results of this study is the breadth of 
 The impact appears to be very closely linked to the metabolism of the bacteria, because when the authors used compounds that do not interfere with metabolism, the ability to clear bacteria was greatly enhanced. It therefore seems likely that, in many cases, the observed negative synergy arises because one of a combination of drugs targets metabolism while the other requires the bacteria to be metabolically active for its effect.
 
 There is clearly much to learn about the complex interplay of these different classes of antibiotic. The results from this study provide a solid starting point from which to tackle key further questions and fully understand the ramifications for the medical application of these essential drugs.
+
+{{< /style >}}
