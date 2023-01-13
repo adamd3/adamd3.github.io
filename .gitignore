@@ -13,3 +13,5 @@ hugo.linux
 /.hugo_build.lock
 
 *.Rmd
+
+*.DS_Store
