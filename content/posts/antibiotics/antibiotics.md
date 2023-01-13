@@ -8,6 +8,8 @@ Antibiotics are the single most effective medical tool for the treatment of bact
 
 Unfortunately, the excessive application of antibiotics can [promote the emergence of drug-resistant strains of bacteria](https://pubmed.ncbi.nlm.nih.gov/25271470/). As a result, clinicians have increasingly begun to [employ multiple antibiotics](https://pubmed.ncbi.nlm.nih.gov/17997179/) in combination. 
 
+![antibioticres](/images/antibiotic-resistance.jpeg)
+
 This may seem like an intuitively sensible approach; using more than one drug should result in a more effective treatment, since the bugs are unlikely to be resistant to both of the antibiotics. And, indeed, such positive synergism between drugs is often observed. 
 
 However, paradoxically, using multiple antibiotics together can [sometimes be less effective](https://pubmed.ncbi.nlm.nih.gov/31919223/) than would be predicted based on the efficacy of the individual drugs alone.
