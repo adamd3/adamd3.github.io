@@ -7,7 +7,7 @@ draft: false
 
 ## 2023
 
-Remes C, Khawaja A, Pearce SF, **Dinan AM**, Gopalakrishna S, Cipullo M, Kyriakidis V, Zhang J, Dopico XC, Yukhnovets O, Atanassov I. Translation initiation of leaderless and polycistronic transcripts in mammalian mitochondria. {{< line_break >}}
+Remes C, Khawaja A, Pearce SF, **Dinan AM**, Gopalakrishna S, Cipullo M, Kyriakidis V, Zhang J, Dopico XC, Yukhnovets O, Atanassov I, Firth AE, Cooperman B, Rorbach J. Translation initiation of leaderless and polycistronic transcripts in mammalian mitochondria. {{< line_break >}}
 *Nucleic Acids Research*. 2023 Jan 11.
 
 ## 2022
@@ -32,7 +32,7 @@ Ho JS, Angel M, Ma Y, Sloan E, Wang G, Martinez-Romero C, Alenquer M, Roudko V, 
 
 ## 2019
 
-Gopalakrishna S, Pearce SF, **Dinan AM**, Schober FA, Cipullo M, Spåhr H, Khawaja A, Maffezzini C, Freyer C, Wredenberg A, Atanassov I. C6orf203 is an RNA-binding protein involved in mitochondrial protein synthesis. {{< line_break >}}
+Gopalakrishna S, Pearce SF, **Dinan AM**, Schober FA, Cipullo M, Spåhr H, Khawaja A, Maffezzini C, Freyer C, Wredenberg A, Atanassov I, Firth AE, Rorbach J. C6orf203 is an RNA-binding protein involved in mitochondrial protein synthesis. {{< line_break >}}
 *Nucleic Acids Research*. 2019 Sep 26;47(17):9386-99.
 
 **Dinan AM**, Keep S, Bickerton E, Britton P, Firth AE, Brierley I. Comparative analysis of gene expression in virulent and attenuated strains of infectious bronchitis virus at subcodon resolution. {{< line_break >}}
