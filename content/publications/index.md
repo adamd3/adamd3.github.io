@@ -4,26 +4,25 @@ date: 2022-08-31T14:35:21+01:00
 draft: false
 ---
 
-{{< style "text-align:justify; strong{color:#00b1ff;}" >}}
 
 ## 2023
 
-- Remes C, Khawaja A, Pearce SF, **Dinan AM**, Gopalakrishna S, Cipullo M, Kyriakidis V, Zhang J, Dopico XC, Yukhnovets O, Atanassov I. {{< line_break >}}
+Remes C, Khawaja A, Pearce SF, **Dinan AM**, Gopalakrishna S, Cipullo M, Kyriakidis V, Zhang J, Dopico XC, Yukhnovets O, Atanassov I. {{< line_break >}}
 Translation initiation of leaderless and polycistronic transcripts in mammalian mitochondria. {{< line_break >}}
 *Nucleic Acids Research*. 2023 Jan 11.
 
 ## 2022
 
-- **Dinan AM***, Eneje O*, Brown KP, Burden F, Morse M, Prinjha R, Frontini M, Floto RA. {{< line_break >}}
+**Dinan AM***, Eneje O*, Brown KP, Burden F, Morse M, Prinjha R, Frontini M, Floto RA. {{< line_break >}}
 Epigenetic and transcriptional plasticity of myeloid cells in Cystic Fibrosis. {{< line_break >}}
 *bioRxiv*. 2022 (preprint). {{< line_break >}}
  (*\*Equal contributors*)
 
-- Cook GM, Brown K, Shang P, Li Y, Soday L, **Dinan AM**, Tumescheit C, Mockett AA, Fang Y, Firth AE, Brierley I. {{< line_break >}}
+Cook GM, Brown K, Shang P, Li Y, Soday L, **Dinan AM**, Tumescheit C, Mockett AA, Fang Y, Firth AE, Brierley I. {{< line_break >}}
 Ribosome profiling of porcine reproductive and respiratory syndrome virus reveals novel features of viral gene expression. {{< line_break >}}
 *Elife*. 2022 Feb 28;11:e75668.
 
-- Rebelo-Guiomar P, Pellegrino S, Dent KC, Sas-Chen A, Miller-Fleming L, Garone C, Van Haute L, Rogan JF, **Dinan A**, Firth AE, Andrews B. {{< line_break >}}
+Rebelo-Guiomar P, Pellegrino S, Dent KC, Sas-Chen A, Miller-Fleming L, Garone C, Van Haute L, Rogan JF, **Dinan A**, Firth AE, Andrews B. {{< line_break >}}
 A late-stage assembly checkpoint of the human mitochondrial ribosome large subunit. {{< line_break >}}
 *Nature Communications*. 2022 Feb 17;13(1):1-4.
 
@@ -78,5 +77,3 @@ Functional characterization of the Mycobacterium abscessus genome coupled with c
 **Dinan AM**, Tong P, Lohan AJ, Conlon KM, Miranda-CasoLuengo AA, Malone KM, Gordon SV, Loftus BJ. {{< line_break >}}
 Relaxed selection drives a noisy noncoding transcriptome in members of the Mycobacterium tuberculosis complex. {{< line_break >}}
 *mBio*. 2014 Aug 5;5(4):e01169-14.
-
-{{< /style >}}
