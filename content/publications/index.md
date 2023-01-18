@@ -4,6 +4,11 @@ date: 2022-08-31T14:35:21+01:00
 draft: false
 ---
 
+## 2023
+
+Remes C, Khawaja A, Pearce SF, **Dinan AM**, Gopalakrishna S, Cipullo M, Kyriakidis V, Zhang J, Dopico XC, Yukhnovets O, Atanassov I. Translation initiation of leaderless and polycistronic transcripts in mammalian mitochondria. {{< line_break >}}
+*Nucleic Acids Research*. 2023 Jan 11.
+
 ## 2022
 
 **Dinan AM***, Eneje O*, Brown KP, Burden F, Morse M, Prinjha R, Frontini M, Floto RA. Epigenetic and transcriptional plasticity of myeloid cells in Cystic Fibrosis.<br /><br />
