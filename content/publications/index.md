@@ -4,6 +4,8 @@ date: 2022-08-31T14:35:21+01:00
 draft: false
 ---
 
+{{< style "text-align:justify; strong{color:#00b1ff;}" >}}
+
 ## 2023
 
 Remes C, Khawaja A, Pearce SF, **Dinan AM**, Gopalakrishna S, Cipullo M, Kyriakidis V, Zhang J, Dopico XC, Yukhnovets O, Atanassov I. {{< line_break >}}
@@ -76,3 +78,5 @@ Functional characterization of the Mycobacterium abscessus genome coupled with c
 **Dinan AM**, Tong P, Lohan AJ, Conlon KM, Miranda-CasoLuengo AA, Malone KM, Gordon SV, Loftus BJ. {{< line_break >}}
 Relaxed selection drives a noisy noncoding transcriptome in members of the Mycobacterium tuberculosis complex. {{< line_break >}}
 *mBio*. 2014 Aug 5;5(4):e01169-14.
+
+{{< /style >}}
