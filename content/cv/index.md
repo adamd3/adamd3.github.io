@@ -15,6 +15,7 @@ Postdoctoral Research Associate.
 - Version control and CI/CD (Git, GitHub Actions).
 - Containerisation systems (Docker, Singularity) and package/environment management systems (Conda, venv).
 - Web app development and APIs: back-end and front-end (Flask, React, Shiny, Apache, gunicorn).
+- Database handling and migration (PostgreSQL, SQLite, MySQL).
 - Deployment to high-performance computing (HPC) clusters and on cloud-based platforms (AWS).
 - Integrative analysis of genome-scale omics data sets (genomics, transcriptomics, proteomics, epigenomics, CRISPR).
 - Bioinformatics pipeline development using modern workflow management systems (Nextflow, Snakemake, bash).
