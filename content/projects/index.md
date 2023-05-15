@@ -1,5 +1,5 @@
 ---
-title: "Projects"
+title: 'Projects'
 date: 2022-09-01T14:35:21+01:00
 draft: false
 ---
@@ -13,6 +13,7 @@ draft: false
 [![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A521.10.3-23aa62.svg?labelColor=000000)](https://www.nextflow.io/)
 
 <!-- [![run with conda](http://img.shields.io/badge/run%20with-conda-3EB049?labelColor=000000&logo=anaconda)](https://docs.conda.io/en/latest/) -->
+
 [![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed.svg?labelColor=000000&logo=docker)](https://www.docker.com/)
 [![run with singularity](https://img.shields.io/badge/run%20with-singularity-1d355c.svg?labelColor=000000)](https://sylabs.io/docs/)
 
@@ -23,6 +24,7 @@ draft: false
 [![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A521.10.3-23aa62.svg?labelColor=000000)](https://www.nextflow.io/)
 
 <!-- [![run with conda](http://img.shields.io/badge/run%20with-conda-3EB049?labelColor=000000&logo=anaconda)](https://docs.conda.io/en/latest/) -->
+
 [![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed.svg?labelColor=000000&logo=docker)](https://www.docker.com/)
 [![run with singularity](https://img.shields.io/badge/run%20with-singularity-1d355c.svg?labelColor=000000)](https://sylabs.io/docs/)
 
@@ -42,6 +44,8 @@ You can find an Introductory Vignette describing the main features of the packag
 
 ### Cystic Fibrosis gene expression browser
 
-The [Cystic Fibrosis gene expression browser](https://blueprint.haem.cam.ac.uk/cfbrowser/) provides access to multiple gene expression and epigenetic data sets generated as part of the Varsity Project at the University of Cambridge. It is hosted by the [Department of Haematology](https://www.haem.cam.ac.uk/).
+![CF-browser](/images/cf-browser-screenshot.png)
 
-Gene and transcript expression can be visualised and accessed via the Shiny Apps, and genome-wide H3K27Ac acetylation data are provided in the [UCSC browser](https://genome.ucsc.edu/).
+The [Cystic Fibrosis gene expression browser](https://blueprint.haem.cam.ac.uk/cf-express/) provides access to multiple gene expression and epigenetic data sets generated as part of the Varsity Project at the University of Cambridge. It is hosted by the [Department of Haematology](https://www.haem.cam.ac.uk/).
+
+Gene and transcript expression can be visualised and accessed directly via the app, and genome-wide H3K27Ac acetylation data are provided in the [UCSC browser](https://genome.ucsc.edu/).
