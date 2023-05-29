@@ -14,7 +14,7 @@ Postdoctoral Research Associate.
 - Object-oriented programming and package development (Python, R).
 - Version control and CI/CD (Git, GitHub Actions).
 - Containerisation systems (Docker, Singularity) and package/environment management systems (Conda, venv).
-- Web app development and APIs: back-end and front-end (Flask, React, Shiny, Apache, gunicorn).
+- API deployment and web app development: back-end (Flask, FastAPI, gunicorn, uvicorn) and front-end (React, Shiny).
 - Database handling and migration (PostgreSQL, SQLite, MySQL).
 - Deployment to high-performance computing (HPC) clusters and on cloud-based platforms (AWS).
 - Integrative analysis of genome-scale omics data sets (genomics, transcriptomics, proteomics, epigenomics, CRISPR).
