@@ -9,7 +9,7 @@ draft: false
 Epigenetic and transcriptional plasticity drive inflammation in Cystic Fibrosis. {{< line_break >}}
 **Dinan AM\***, Eneje O*, Brown KP, Burden F, Morse M, Prinjha R, Frontini M, Floto RA. {{< line_break >}}
 *bioRxiv*. 2023 (preprint). {{< line_break >}}
-(*\*Equal contributors\*)
+(*Equal contributors)
 
 Zika viruses encode multiple upstream open reading frames in the 5′ viral region with a role in neurotropism. {{< line_break >}}
 Lefèvre C, Cook GM, **Dinan AM**, Torii S, Stewart H, Gibbons G, Nicholson AS, Echavarría-Consuegra L, Meredith LW, Lulla V, Kenyon JC, Goodfellow I, Deane JE, Graham SC, Lakatos A, Lambrechts L, Brierley I, Irigoyen N. {{< line_break >}}
