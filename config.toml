@@ -3,11 +3,6 @@ languageCode = "en"
 title = "Adam Dinan"
 theme = "LoveIt"
 
-[author]
-  name = "Adam Dinan"
-  email = "ad866@cam.ac.uk"
-  link = ""
-
 [menu]
   [[menu.main]]
     weight = 1
@@ -86,9 +81,16 @@ enableGitInfo = false
 enableEmoji = true
 
 # ignore some build errors
-ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
+ignoreErrors = [
+    "error-remote-getjson", 
+    "error-missing-instagram-accesstoken",
+    "deprecated-config"
+]
 
 [params]
+  author = "Adam Dinan"
+  email = "ad866@cam.ac.uk"
+  link = ""
   # site default theme ["auto", "light", "dark"]
   defaultTheme = "dark"
   # public git repo url only then enableGitInfo is true
@@ -104,6 +106,12 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   description = "Personal blog"
   # website images for Open Graph and Twitter Cards
   # images = ["/logo.png"]
+  
+  [languages]
+    [languages.en]
+      weight = 1
+      languageCode = "en"
+      languageName = "English"
 
   # Header config
   [params.header]
