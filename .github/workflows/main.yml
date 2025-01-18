@@ -1,46 +1,42 @@
-name: github pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main  # Set a branch to deploy
-  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
-    runs-on: ubuntu-20.04
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - name: Git checkout
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-      # - name: Update theme
-      #   # (Optional)If you have the theme added as submodule, you can pull it and use the most updated version
-      #   run: git submodule update --init --recursive
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.123.8'
-          extended: true
-
+          node-version: '18'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
       - name: Build
-        # remove --minify tag if you do not need it
-        # docs: https://gohugo.io/hugo-pipes/minification/
-        run: hugo --minify
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        run: npm run build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          # publish_branch: master
-          # Note that the GITHUB_TOKEN is NOT a personal access token.
-          # A GitHub Actions runner automatically creates a GITHUB_TOKEN secret
-          # to authenticate in your workflow.
-          # personal_token: ${{ secrets.TOKEN }}
-          # external_repository: adamd3/adamd3.github.io
-          # user_name: adamd3
-          # user_email: adam1989ie@gmail.com
+          path: dist/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
