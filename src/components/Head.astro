@@ -170,8 +170,12 @@ function toggleTheme(dark) {
 
     if (userTheme === "light" || userTheme === "dark") {
       toggleTheme(userTheme === "dark");
-    } else {
+    } else if (userTheme === "system") {
       toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+    } else {
+      // No preference saved, default to dark mode
+      toggleTheme(true);
+      localStorage.theme = "dark";
     }
   }
 
