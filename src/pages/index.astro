@@ -33,11 +33,13 @@ const work = await Promise.all(
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
     <div class="animate flex justify-center mb-8">
-      <img 
-        src="/images/adam_bw_grey.png" 
-        alt="Adam Dinan" 
-        class="rounded-full w-48 h-48 object-cover"
-      />
+      <div class="size-48 overflow-hidden rounded-full">
+        <img 
+          src="/images/adam_bw_grey.png" 
+          alt="Adam Dinan" 
+          cclass="w-full h-full object-cover"
+        />
+        </div>
     </div>
 
     <h4 class="animate font-semibold text-black dark:text-white">
