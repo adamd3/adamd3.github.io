@@ -4,4 +4,4 @@ This is a repository for my personal blog.
 It was built with [Astro](https://astro.build/) and uses the wonderfully simple and lightweight [Astro Nano](https://github.com/markhorn-dev/astro-nano) theme.
 It uses Tailwind and Typescript, with no additional frameworks.
 
-[🔗 View the blog](https://adamd3.github.io/).
+🔗 [View the blog](https://adamd3.github.io/).
