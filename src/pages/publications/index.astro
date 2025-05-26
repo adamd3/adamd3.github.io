@@ -1,0 +1,39 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import { PUBLICATIONS } from "@consts";
+import Link from "@components/Link.astro";
+---
+
+<PageLayout title={PUBLICATIONS.TITLE} description={PUBLICATIONS.DESCRIPTION}>
+  <Container>
+    <div class="space-y-10">
+      <div class="animate font-semibold text-black dark:text-white">
+        This is a list of selected publications and preprints. You can find a full list of my publications on my <Link href="https://orcid.org/0000-0003-2812-1616" aria-label="ORCID" external>
+            ORCID</Link> profile or on <Link href="https://scholar.google.com/citations?user=NiRU_KMAAAAJ&hl=en" aria-label="Google Scholar" external>Google Scholar</Link>.
+      </div>
+      <ul class="animate space-y-4 list-disc list-inside text-gray-700 dark:text-gray-300">
+        <li>
+          <strong class="text-black dark:text-white"><Link href="https://www.science.org/doi/10.1126/science.adi0908" aria-label="Evolution and host-specific adaptation of Pseudomonas aeruginosa" external>Evolution and host-specific adaptation of Pseudomonas aeruginosa</Link></strong><br />
+          Weimann A, <strong class="text-black dark:text-white">Dinan AM</strong>, <i>et al. Science</i> (2024)
+        </li>
+        <li>
+          <strong class="text-black dark:text-white"><Link href="https://www.nature.com/articles/s41467-024-53085-9" aria-label="Zika viruses encode 5' upstream open reading frames affecting infection of human brain cells" external>Zika viruses encode 5' upstream open reading frames affecting infection of human brain cells</Link></strong><br />
+          Lefèvre C, Cook GM, <strong class="text-black dark:text-white">Dinan AM</strong>,  <i>et al. Nature Communications</i> (2024)
+        </li>
+        <li>
+          <strong class="text-black dark:text-white"><Link href="https://www.biorxiv.org/content/10.1101/2024.01.03.574022v1" aria-label="Sequence-based modelling of bacterial genomes enables accurate antibiotic resistance prediction" external>Sequence-based modelling of bacterial genomes enables accurate antibiotic resistance prediction</Link></strong><br />
+          Wiatrak M, Weimann A, <strong class="text-black dark:text-white">Dinan AM</strong>,  <i>et al. bioRxiv</i> (2024)
+        </li>
+        <li>
+          <strong class="text-black dark:text-white"><Link href="https://academic.oup.com/ve/article/6/1/veaa007/5733117" aria-label="A case for a negative-strand coding sequence in a group of positive-sense RNA viruses" external>A case for a negative-strand coding sequence in a group of positive-sense RNA viruses</Link></strong><br />
+          <strong class="text-black dark:text-white">Dinan AM</strong> <i>et al. Virus Evolution</i> (2020)
+        </li>
+        <li>
+          <strong class="text-black dark:text-white"><Link href="https://www.nature.com/articles/s41564-018-0297-1" aria-label="An upstream protein-coding region in enteroviruses modulates virus infection in gut epithelial cells" external>An upstream protein-coding region in enteroviruses modulates virus infection in gut epithelial cells</Link></strong><br />
+          Lulla V, <strong class="text-black dark:text-white">Dinan AM</strong>,  <i>et al. Nature Microbiology</i> (2019)
+        </li>
+      </ul>
+    </div>
+  </Container>
+</PageLayout>

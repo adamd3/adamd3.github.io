@@ -23,6 +23,11 @@ export const EXPERIENCE: Metadata = {
   DESCRIPTION: "Where I have worked and what I have done.",
 };
 
+export const PUBLICATIONS: Metadata = {
+  TITLE: "Selected publications",
+  DESCRIPTION: "A list of my selected publications.",
+};
+
 export const PRESENTATIONS: Metadata = {
   TITLE: "Recent presentations",
   DESCRIPTION: "A list of presentations I have given.",
