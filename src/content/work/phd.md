@@ -1,8 +1,8 @@
 ---
 company: 'University College Dublin'
 role: 'PhD in Computational Genomics'
-dateStart: '2024'
-dateEnd: 'Present'
+dateStart: '2012'
+dateEnd: '2016'
 ---
 
 I was awarded a scholarship as part of the Wellcome Trust Computational Infection Biology PhD programme at University College Dublin.
