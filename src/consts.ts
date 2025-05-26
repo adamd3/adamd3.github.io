@@ -18,14 +18,14 @@ export const BLOG: Metadata = {
   DESCRIPTION: "A collection of articles I've written about topics that interest me.",
 };
 
-export const WORK: Metadata = {
-  TITLE: "Work",
+export const EXPERIENCE: Metadata = {
+  TITLE: "Experience",
   DESCRIPTION: "Where I have worked and what I have done.",
 };
 
-export const PROJECTS: Metadata = {
-  TITLE: "Projects",
-  DESCRIPTION: "A collection of my projects, with links to repositories and demos.",
+export const PRESENTATIONS: Metadata = {
+  TITLE: "Presentations",
+  DESCRIPTION: "A list of presentations I have given.",
 };
 
 export const SOCIALS: Socials = [
