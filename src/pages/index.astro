@@ -56,6 +56,11 @@ const work = await Promise.all(
             Cambridge Centre for AI in Medicine</Link>.
           </p>
           <p class="animate">
+            I am interested in the development and application of machine learning 
+            and AI-based methods for the functional annotation of genomes, using 
+            large scale data sets from bacteria, viruses, and humans.
+          </p>
+          <p class="animate">
             I completed my PhD at the University College Dublin, where I received
             a scholarship from the Wellcome Trust, working on computational methods
             for the analysis of high-throughput sequencing data.
@@ -111,24 +116,6 @@ const work = await Promise.all(
               <article>
                 <entry.Content />
               </article>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Recent projects
-          </h5>
-          <Link href="/projects">
-            See all projects
-          </Link>
-        </div>
-        <ul class="flex flex-col gap-4">
-          {projects.map(project => (
-            <li>
-              <ArrowCard entry={project} />
             </li>
           ))}
         </ul>

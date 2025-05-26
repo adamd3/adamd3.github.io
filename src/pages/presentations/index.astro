@@ -1,0 +1,23 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import { PRESENTATIONS } from "@consts";
+---
+
+<PageLayout title={PRESENTATIONS.TITLE} description={PRESENTATIONS.DESCRIPTION}>
+  <Container>
+    <div class="space-y-10">
+      <div class="animate font-semibold text-black dark:text-white">
+        Presentations
+      </div>
+      <ul class="animate space-y-2 list-disc list-inside text-gray-700 dark:text-gray-300">
+        <li>E-commerce Dashboard - Full-stack React application with real-time analytics and inventory management</li>
+        <li>Weather App - Clean, responsive weather application built with Vue.js and OpenWeather API</li>
+        <li>Task Manager - Collaborative productivity tool with drag-and-drop functionality using Svelte</li>
+        <li>Personal Blog Engine - Custom static site generator built with Node.js and Markdown support</li>
+        <li>API Gateway - Microservices architecture with rate limiting and authentication using Express.js</li>
+        <li>Mobile Expense Tracker - React Native app with offline capabilities and data synchronization</li>
+      </ul>
+    </div>
+  </Container>
+</PageLayout>
