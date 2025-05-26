@@ -24,7 +24,7 @@ export const EXPERIENCE: Metadata = {
 };
 
 export const PRESENTATIONS: Metadata = {
-  TITLE: "Presentations",
+  TITLE: "Recent presentations",
   DESCRIPTION: "A list of presentations I have given.",
 };
 
