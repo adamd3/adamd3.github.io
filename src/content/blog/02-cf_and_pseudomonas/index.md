@@ -1,5 +1,5 @@
 ---
-title: 'Welcome to my personal blog'
+title: 'Persistent infections in Cystic Fibrosis'
 description: 'Welcome'
 date: 'Aug 28 2025'
 ---
