@@ -1,6 +1,6 @@
 ---
 title: 'Persistent infections in Cystic Fibrosis'
-description: 'Welcome'
+description: 'Why they are still a problem'
 date: 'Aug 28 2025'
 ---
 
