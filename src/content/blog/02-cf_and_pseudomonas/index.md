@@ -1,7 +1,7 @@
 ---
 title: 'Welcome to my personal blog'
 description: 'Welcome'
-date: 'Jan 23 2025'
+date: 'Aug 28 2025'
 ---
 
 Cystic fibrosis (CF) is one of the most common fatal genetic disorders worldwide, affecting approximately 100,000 individuals. People with CF suffer from chronic lung infections and have a reduced life expectancy [1]. The disease is caused by specific changes (‘variants’) in a gene called the CF transmembrane conductance regulator (CFTR).
