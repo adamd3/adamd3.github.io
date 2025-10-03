@@ -12,9 +12,9 @@ The most common bacterial pathogen infecting CF patients is called Pseudomonas a
 
 In recent years, a new class of drugs called modulators has transformed CF treatment. These drugs substantially improve patient quality of life, by increasing CFTR activity, but they do not eradicate bacteria from the lungs. This means that Pseudomonas infections continue to cause inflammation and damage [4]. Understanding how and why the bacteria persist is important for the development of new treatments.
 
-A recent paper in the journal Cell Host & Microbe [5] investigated the extent of lung infections pre- and post-treatment with modulator drugs. They found an all-or-nothing response to modulator treatment: either the bacteria was completely eradicated, or it remained widespread throughout the lungs. Inflammation was especially driven by Pseudomonas infections, which are capable of surviving treatment.
-
 ![cell_host_microbe_pseudomonas](./cell_host_microbe_pseudomonas.jpg)
+
+A recent paper in the journal Cell Host & Microbe [5] investigated the extent of lung infections pre- and post-treatment with modulator drugs. They found an all-or-nothing response to modulator treatment: either the bacteria was completely eradicated, or it remained widespread throughout the lungs. Inflammation was especially driven by Pseudomonas infections, which are capable of surviving treatment.
 
 The authors speculate that bacteria in different regions of the lungs are genetically adapted to local conditions, allowing them to persist. This raises the intriguing possibility that the adaptations responsible are mediated via gene regulatory networks that allow the bacteria to grow in different parts of the body.
 
